@@ -49,11 +49,13 @@ nav {
   font-size: 1.1rem; font-weight: 700; color: var(--text);
   letter-spacing: -.3px;
 }
-.nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-links { display: flex; align-items: center; gap: 16px; }
 .nav-links a { color: var(--muted); font-size: .9rem; transition: color .2s; }
 .nav-links a:hover { color: var(--text); }
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .nav-links a:not(.btn-nav) { display: none; }
+  .nav-inner { padding: 0 16px; }
+  .logo { font-size: 1rem; }
 }
 .btn-nav {
   display: flex; align-items: center; gap: 6px;
@@ -216,11 +218,11 @@ h1 {
 .how { padding: 100px 24px; }
 
 .steps {
-  display: flex; align-items: flex-start; gap: 16px;
-  flex-wrap: wrap; justify-content: center; margin-bottom: 72px;
+  display: flex; align-items: center; gap: 12px;
+  flex-wrap: nowrap; justify-content: center; margin-bottom: 72px;
 }
 .step {
-  display: flex; gap: 16px; max-width: 260px;
+  display: flex; gap: 16px; flex: 1; max-width: 280px; min-width: 0;
   opacity: 0; transform: translateY(20px);
   transition: opacity .4s, transform .4s;
 }
@@ -233,7 +235,13 @@ h1 {
 }
 .step-content h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
 .step-content p { color: var(--muted); font-size: .88rem; }
-.step-arrow { font-size: 1.5rem; color: var(--border); align-self: center; }
+.step-arrow { font-size: 1.5rem; color: var(--border); flex-shrink: 0; }
+
+@media (max-width: 640px) {
+  .steps { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .step { max-width: 100%; }
+  .step-arrow { display: none; }
+}
 
 .models h3 { text-align: center; font-size: 1.3rem; font-weight: 700; margin-bottom: 24px; }
 .models-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 700px; margin: 0 auto; }
@@ -253,8 +261,9 @@ h1 {
   margin-bottom: 10px;
 }
 .model-badge-alt { background: var(--orange); }
-.model-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-.model-size { font-size: 1.8rem; font-weight: 800; color: var(--blue-l); margin-bottom: 8px; }
+.model-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+.model-stars { font-size: 1.4rem; color: var(--blue-l); margin-bottom: 10px; letter-spacing: 2px; }
+.model-stars-alt { color: var(--orange); }
 .model-card p { color: var(--muted); font-size: .88rem; margin-bottom: 14px; }
 .model-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag {
