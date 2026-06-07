@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictum — Dictée vocale locale, zéro cloud</title>
+  <meta name="description" content="App de dictée vocale Windows alimentée par Whisper AI. 100% local, zéro abonnement, zéro cloud.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#4682b4"/><circle cx="16" cy="16" r="11" fill="#121218" opacity=".6"/><circle cx="16" cy="16" r="6" fill="#4682b4"/></svg>
+        Dictum
+      </a>
+      <div class="nav-links">
+        <a href="#features">Fonctionnalités</a>
+        <a href="#how">Comment ça marche</a>
+        <a href="#api">API</a>
+        <a href="#cli">CLI</a>
+        <a href="https://github.com/painteau/Dictum" target="_blank" rel="noopener" class="btn-nav">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="badge">🎙 Whisper AI · Windows · Open Source</div>
+      <h1>Dictez. <span class="gradient">Localement.</span><br>Sans compromis.</h1>
+      <p class="hero-sub">Dictum transforme votre voix en texte directement sur votre PC,<br>sans cloud, sans abonnement, sans connexion internet.</p>
+      <div class="hero-actions">
+        <a href="https://github.com/painteau/Dictum/releases/latest" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm6 4H6v-2h12v2z"/></svg>
+          Télécharger Dictum
+        </a>
+        <a href="https://github.com/painteau/Dictum" class="btn-secondary" target="_blank" rel="noopener">Voir sur GitHub</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">v1.7</span><span class="stat-l">Version actuelle</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Local & privé</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><span class="stat-n">0€</span><span class="stat-l">Aucun abonnement</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><span class="stat-n">30+</span><span class="stat-l">Commandes CLI</span></div>
+      </div>
+    </div>
+    <!-- Floating tray preview -->
+    <div class="tray-preview">
+      <div class="tray-icon idle"></div>
+      <div class="tray-menu">
+        <div class="tray-item recording">🔴 Enregistrement...</div>
+        <div class="tray-item">⏸  Pause dictée</div>
+        <div class="tray-item">✨ Reformuler sélection</div>
+        <div class="tray-item">📋 Historique (12 entrées, 840 mots)</div>
+        <div class="tray-item">📂 Transcrire un fichier...</div>
+        <div class="tray-sep"></div>
+        <div class="tray-item muted">⚙  Paramètres</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tout ce dont vous avez besoin</h2>
+        <p>Dictum couvre tous les cas d'usage de la dictée vocale moderne.</p>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card feature-highlight">
+          <div class="feature-icon">🔒</div>
+          <h3>100% Local & Privé</h3>
+          <p>Whisper AI tourne sur votre machine. Vos paroles ne quittent jamais votre PC. Aucune API externe, aucune donnée envoyée.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Injection instantanée</h3>
+          <p>Maintenez la touche hotkey → parlez → relâchez. Le texte apparaît directement là où est votre curseur, dans n'importe quelle app.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎙</div>
+          <h3>Mode Live Streaming</h3>
+          <p>Transcription en temps réel via whisper-stream. Le texte s'affiche au fil de la parole, mot par mot.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Reformulation IA</h3>
+          <p>7 styles de reformulation via Ollama local : formel, informel, email, bullet points, résumé, tweet, correction. Zéro cloud.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>57 langues + Traduction</h3>
+          <p>Transcription en français, anglais, allemand, espagnol et 53 autres langues. Traduction automatique vers l'anglais intégrée.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📂</div>
+          <h3>Drag & Drop</h3>
+          <p>Glissez un fichier WAV sur la fenêtre → transcription instantanée → résultat copié dans le presse-papiers.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🖥</div>
+          <h3>Fenêtre paramètres</h3>
+          <p>Interface graphique moderne avec 5 onglets : Général, Microphone, Substitutions, Avancé, Reformulation.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔌</div>
+          <h3>API HTTP locale</h3>
+          <p>Serveur REST sur localhost:44880. Contrôlez Dictum depuis vos scripts, plugins ou intégrations tierces.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⌨</div>
+          <h3>Plugin VS Code</h3>
+          <p>Status bar, reformulation de sélection, historique intégré directement dans votre éditeur.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-header">
+        <h2>Comment ça marche</h2>
+        <p>Simple comme appuyer sur une touche.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Maintenez la touche</h3>
+            <p>Appuyez et maintenez votre hotkey configurée (F9 par défaut). Un beep signale le début de l'enregistrement.</p>
+          </div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Parlez</h3>
+            <p>Dictez ce que vous voulez. L'icône tray passe au rouge. Whisper AI écoute localement.</p>
+          </div>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Relâchez</h3>
+            <p>Un beep signale la fin. Whisper transcrit en 1-5s selon le modèle. Le texte s'injecte directement.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="models">
+        <h3>Choisissez votre modèle</h3>
+        <div class="models-grid">
+          <div class="model-card">
+            <div class="model-badge">Recommandé</div>
+            <h4>Whisper Medium</h4>
+            <div class="model-size">1.5 GB</div>
+            <p>Excellente précision en français, transcription rapide (2-4s). Idéal pour la dictée quotidienne.</p>
+            <div class="model-tags">
+              <span class="tag">CPU</span>
+              <span class="tag">Rapide</span>
+              <span class="tag">FR ★★★★★</span>
+            </div>
+          </div>
+          <div class="model-card model-card-alt">
+            <div class="model-badge model-badge-alt">Précision max</div>
+            <h4>Whisper Large-v3</h4>
+            <div class="model-size">3.0 GB</div>
+            <p>Meilleure précision absolue, supporte tous les accents. Recommandé avec GPU NVIDIA.</p>
+            <div class="model-tags">
+              <span class="tag">GPU CUDA</span>
+              <span class="tag">Lent sur CPU</span>
+              <span class="tag">FR ★★★★★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- API -->
+  <section class="api-section" id="api">
+    <div class="container">
+      <div class="section-header">
+        <h2>API HTTP Locale</h2>
+        <p>Contrôlez Dictum depuis n'importe quelle app sur votre machine.</p>
+      </div>
+      <div class="api-grid">
+        <div class="api-endpoints">
+          <h3>Endpoints disponibles</h3>
+          <div class="endpoint"><span class="method get">GET</span><code>/status</code><span class="ep-desc">État complet en JSON</span></div>
+          <div class="endpoint"><span class="method get">GET</span><code>/history</code><span class="ep-desc">Historique des dictées</span></div>
+          <div class="endpoint"><span class="method get">GET</span><code>/config</code><span class="ep-desc">Configuration active</span></div>
+          <div class="endpoint"><span class="method post">POST</span><code>/inject</code><span class="ep-desc">Injecter du texte</span></div>
+          <div class="endpoint"><span class="method post">POST</span><code>/pause</code><span class="ep-desc">Toggle pause</span></div>
+          <div class="endpoint"><span class="method post">POST</span><code>/reformulate</code><span class="ep-desc">Reformuler via Ollama</span></div>
+          <div class="endpoint"><span class="method post">POST</span><code>/reload</code><span class="ep-desc">Recharger la config</span></div>
+        </div>
+        <div class="api-code">
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="showCode('status')">Status</button>
+            <button class="code-tab" onclick="showCode('inject')">Inject</button>
+            <button class="code-tab" onclick="showCode('reformulate')">Reformuler</button>
+          </div>
+          <pre id="code-status" class="code-block"><code><span class="c"># Statut de Dictum</span>
+curl http://localhost:44880/status
+
+<span class="c"># Réponse :</span>
+{
+  <span class="k">"recording"</span>: false,
+  <span class="k">"transcribing"</span>: false,
+  <span class="k">"paused"</span>: false,
+  <span class="k">"session_count"</span>: 12,
+  <span class="k">"hotkey"</span>: <span class="s">"F9"</span>,
+  <span class="k">"model"</span>: <span class="s">"ggml-medium.bin"</span>,
+  <span class="k">"language"</span>: <span class="s">"fr"</span>,
+  <span class="k">"version"</span>: <span class="s">"1.7.0"</span>
+}</code></pre>
+          <pre id="code-inject" class="code-block" style="display:none"><code><span class="c"># Injecter du texte à la position curseur</span>
+curl -X POST http://localhost:44880/inject \
+  -d "Bonjour le monde"
+
+<span class="c"># Réponse :</span>
+{ <span class="k">"ok"</span>: true }</code></pre>
+          <pre id="code-reformulate" class="code-block" style="display:none"><code><span class="c"># Reformuler via Ollama local</span>
+curl -X POST http://localhost:44880/reformulate \
+  -H "Content-Type: application/json" \
+  -d '{<span class="k">"text"</span>:<span class="s">"salut ca va"</span>,<span class="k">"style"</span>:<span class="s">"email"</span>}'
+
+<span class="c"># Réponse :</span>
+{
+  <span class="k">"result"</span>: <span class="s">"Bonjour,\n\nJ'espère que vous allez bien.\n\nCordialement"</span>
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLI -->
+  <section class="cli-section" id="cli">
+    <div class="container">
+      <div class="section-header">
+        <h2>CLI Complet</h2>
+        <p>30+ commandes pour tout contrôler depuis votre terminal.</p>
+      </div>
+      <div class="cli-grid">
+        <div class="cli-group">
+          <h4>Config</h4>
+          <div class="cli-cmd"><code>--config-check</code><span>Valider la configuration</span></div>
+          <div class="cli-cmd"><code>--set-lang fr</code><span>Changer la langue</span></div>
+          <div class="cli-cmd"><code>--set-hotkey F10</code><span>Changer le hotkey</span></div>
+          <div class="cli-cmd"><code>--set-model medium</code><span>Changer le modèle</span></div>
+          <div class="cli-cmd"><code>--profile french-standard</code><span>Appliquer un profil</span></div>
+          <div class="cli-cmd"><code>--config-export</code><span>Exporter la config JSON</span></div>
+        </div>
+        <div class="cli-group">
+          <h4>Historique</h4>
+          <div class="cli-cmd"><code>--stats</code><span>Statistiques complètes</span></div>
+          <div class="cli-cmd"><code>--history</code><span>Afficher l'historique</span></div>
+          <div class="cli-cmd"><code>--search "bonjour"</code><span>Chercher dans l'historique</span></div>
+          <div class="cli-cmd"><code>--top-words 10</code><span>Mots les plus fréquents</span></div>
+          <div class="cli-cmd"><code>--export</code><span>Export Markdown</span></div>
+          <div class="cli-cmd"><code>--export-csv</code><span>Export CSV</span></div>
+        </div>
+        <div class="cli-group">
+          <h4>Transcription</h4>
+          <div class="cli-cmd"><code>fichier.wav</code><span>Transcrire un fichier</span></div>
+          <div class="cli-cmd"><code>--batch *.wav</code><span>Transcription en lot</span></div>
+          <div class="cli-cmd"><code>--test-mic</code><span>Tester le microphone</span></div>
+          <div class="cli-cmd"><code>--diagnose</code><span>Diagnostic complet</span></div>
+          <div class="cli-cmd"><code>--list-models</code><span>Modèles disponibles</span></div>
+          <div class="cli-cmd"><code>--apply-subs "texte"</code><span>Appliquer substitutions</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section class="install" id="install">
+    <div class="container">
+      <div class="section-header">
+        <h2>Démarrer en 2 minutes</h2>
+      </div>
+      <div class="install-steps">
+        <div class="install-step">
+          <div class="install-num">1</div>
+          <h3>Télécharger l'installateur</h3>
+          <p>Un seul fichier <code>.exe</code>. Inno Setup, signé, propre.</p>
+          <a href="https://github.com/painteau/Dictum/releases/latest" class="btn-primary" target="_blank" rel="noopener">
+            Dictum-Setup-x64.exe
+          </a>
+        </div>
+        <div class="install-step">
+          <div class="install-num">2</div>
+          <h3>Lancer le wizard</h3>
+          <p>Choisissez votre modèle Whisper et votre hotkey. Tout se télécharge automatiquement.</p>
+        </div>
+        <div class="install-step">
+          <div class="install-num">3</div>
+          <h3>Dictez !</h3>
+          <p>Maintenez F9, parlez, relâchez. Le texte s'injecte directement dans votre application active.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <svg width="24" height="24" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#4682b4"/><circle cx="16" cy="16" r="6" fill="#121218"/></svg>
+          <span>Dictum</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/painteau/Dictum" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/painteau/Dictum/releases" target="_blank" rel="noopener">Releases</a>
+          <a href="https://github.com/painteau/Dictum/issues" target="_blank" rel="noopener">Issues</a>
+        </div>
+        <div class="footer-note">Open Source · Windows x64 · Whisper AI · Rust</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showCode(tab) {
+      document.querySelectorAll('.code-block').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.code-tab').forEach(el => el.classList.remove('active'));
+      document.getElementById('code-' + tab).style.display = 'block';
+      event.target.classList.add('active');
+    }
+
+    // Animate tray icon
+    const states = [
+      { cls: 'idle', label: null },
+      { cls: 'recording', label: '🔴 Enregistrement...' },
+      { cls: 'transcribing', label: '🟠 Transcription...' },
+      { cls: 'idle', label: null },
+    ];
+    let si = 0;
+    setInterval(() => {
+      si = (si + 1) % states.length;
+      const icon = document.querySelector('.tray-icon');
+      const firstItem = document.querySelector('.tray-item.recording');
+      if (icon) { icon.className = 'tray-icon ' + states[si].cls; }
+      if (firstItem) { firstItem.textContent = states[si].label || '🎙  Maintenir F9 pour dicter'; }
+    }, 2500);
+
+    // Scroll animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.feature-card, .step, .install-step, .cli-group, .model-card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
