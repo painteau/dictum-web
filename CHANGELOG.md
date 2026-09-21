@@ -60,6 +60,13 @@ servait des fichiers que ce logiciel téléchargeait à l'exécution. Les deux d
 - **Les mesures de vitesse plutôt que des adjectifs** : les durées des trois modèles et le gain
   d'une carte graphique sont ceux qui ont été relevés, et la page dit sur quoi.
 
+- **Une page 404, qui manquait.** Sans elle, Cloudflare Pages renvoie la page d'accueil en `200`
+  pour n'importe quel chemin absent. ⚠️ **C'est ce qui a fait échouer ma propre vérification** que
+  les binaires whisper avaient bien disparu : ils répondaient `200`, et j'ai conclu qu'ils étaient
+  toujours servis, alors que le corps était du HTML et le `Content-Type` `text/html`. Mesurer un
+  code de statut là où il faut mesurer le contenu, c'est exactement le piège que le parc a déjà
+  payé sur un lien de téléchargement périmé.
+
 ### Supprimé
 
 - **Les six binaires whisper.cpp et `manifest.json`.** Ce n'étaient pas des ornements : l'ancien
