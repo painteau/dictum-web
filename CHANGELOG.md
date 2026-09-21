@@ -15,6 +15,74 @@ est désormais le seul récit de ce dépôt.
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-09-21
+
+### Modifié
+
+- **La page d'accueil était écrite par un ingénieur pour des ingénieurs, elle est réécrite pour la
+  personne qui va s'en servir.** Elle annonçait des tailles de modèles en mégaoctets, des noms de
+  moteurs graphiques, des recettes de terminal et des mesures de vitesse. Tout cela est vrai et
+  n'a aucune place sur la première page d'un produit destiné à des gens qui ne connaissent rien à
+  l'informatique.
+
+  ⚠️ **Le public visé n'est pas « le grand public », c'est plus précis que ça** : des professions
+  tenues au secret, qui ont une raison concrète et parfois réglementaire de ne pas laisser sortir
+  ce qu'elles dictent. Médecins, avocats, notaires, journalistes, experts-comptables. Pour elles,
+  un logiciel de dictée local n'est pas un confort, et la page le dit dans ces termes.
+
+  La page nomme donc **le problème avant la solution** (les autres outils de dictée envoient la
+  voix à un serveur), puis à qui ça parle, puis ce que ça change concrètement : sans prestataire,
+  il n'y a ni contrat à signer, ni sous-traitant à inscrire sur un registre, ni pays d'hébergement
+  à vérifier.
+
+  ⚠️ **Elle s'arrête volontairement avant la promesse juridique** : un encart dit noir sur blanc
+  que nous décrivons le fonctionnement du logiciel et pas la situation réglementaire du lecteur.
+  Annoncer une conformité que nous ne sommes pas en position de garantir serait exactement le
+  genre d'affirmation que ce public est entraîné à vérifier.
+
+- **La preuve proposée au lecteur ne demande aucune compétence** : couper le wifi et dicter. Un
+  logiciel qui envoie la voix ailleurs ne peut pas fonctionner sans réseau. C'est un meilleur
+  argument que n'importe quelle description d'architecture, et c'est vérifiable par la personne
+  elle-même en dix secondes.
+
+- **Les limites sont sur la page d'accueil et rendues actionnables**, pas reléguées en notes de
+  version : pas de version Mac, et sous Linux pas encore de Wayland, avec la précision que c'est
+  le choix par défaut des versions récentes d'Ubuntu et de Fedora. Sans cette précision, le mot
+  « Wayland » ne dit rien à personne et l'avertissement ne sert à rien.
+
+### Ajouté
+
+- **L'application iPhone est annoncée**, ce que la refonte précédente avait complètement oublié
+  alors qu'elle sort bientôt. Même principe : la reconnaissance vocale s'exécute sur l'appareil.
+
+  ⛔ **Et la seule fonction qui enverrait du texte ailleurs est annoncée comme telle, en encart.**
+  L'aide à la rédaction a besoin d'un modèle qu'un téléphone ne peut pas faire tourner ; elle est
+  **désactivée par défaut** et l'activer demande le compte personnel de l'utilisateur chez le
+  fournisseur de son choix. Le relevé du code de l'application a été fait avant d'écrire cette
+  ligne, précisément parce qu'une promesse trop large ici casserait devant le seul public qui la
+  lira attentivement. Aucune date annoncée.
+
+- **Une page « détails techniques »** qui recueille tout ce qui a quitté l'accueil : whisper.cpp,
+  les trois modèles et les trois moteurs avec leurs mesures, les recettes apt et pacman, les
+  limites, la licence, et **les emplacements exacts où les dictées sont écrites sur le disque**
+  pour les trois systèmes. Ce dernier point n'est pas de la curiosité technique : quelqu'un qui
+  dicte des comptes rendus de consultation a le droit de savoir où ils sont.
+
+- **Une foire aux questions qui répond aux objections réelles** plutôt qu'aux fonctionnalités :
+  où est le piège si c'est gratuit, comment en être sûr, est-ce que ça remplace une secrétaire
+  (non, et c'est dit), combien de temps ça prend, et que se passe-t-il si on change d'avis. Elle
+  utilise `details`/`summary` natifs, donc elle s'ouvre au clavier et se lit par un lecteur
+  d'écran sans une ligne de JavaScript, et elle est déclarée en `FAQPage` pour les moteurs.
+
+- **`scripts/verifier-site.py`, versionné et prouvé rouge** : vérifie que toute classe du HTML a
+  une règle CSS, et **mesure** les contrastes WCAG 2.2 AA au lieu de les relire.
+
+  ⚠️ **Ce script avait d'abord été écrit comme jetable, supprimé au nettoyage, puis redemandé
+  dans la même heure.** Un contrôle qu'on veut pouvoir relancer n'est pas du jetable : il se
+  versionne. Sa suppression avait de surcroît fait passer la couverture des classes de quatre
+  pages à deux sans que rien ne le signale.
+
+
 ## [1.0.0] - 2026-09-21
 
 Réécriture complète. **Majeure assumée** : le site décrivait un logiciel qui n'existe plus, et il
