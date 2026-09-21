@@ -1,0 +1,104 @@
+# Verifications du site, sur chaque push et chaque pull request.
+#
+# ⛔ **Les deux controles de ce depot existaient sans que rien ne les execute.** Un garde-fou qu'on
+# lance a la main le jour ou on l'ecrit, puis plus jamais, ne dit rien : il donne seulement le
+# sentiment d'etre couvert. Les deux sont ici, la ou on ne peut pas les oublier.
+#
+# ⚠️ Ce depot est PUBLIC, donc les runners GitHub y sont gratuits.
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  verifier:
+    name: Controles du site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ⛔ Mesure du 2026-09-21 : le navigateur d'un visiteur passe dans les quatre heures
+      # precedentes servait encore l'ANCIENNE feuille de style, parce qu'elle etait mise en cache
+      # sans empreinte dans son URL. Le symptome est qu'une page est simplement d'une autre
+      # epoque, et rien ne le signale. Si ce controle echoue, l'empreinte n'a pas ete reposee
+      # apres une modification du CSS.
+      - name: Empreintes de cache a jour
+        run: python3 scripts/poser-empreintes.py --verifier
+
+      # Couverture des classes CSS, et MESURE des contrastes WCAG 2.2 AA, y compris le balayage
+      # des couleurs de texte ecrites en dur qu'aucune liste tenue a la main ne retrouve.
+      - name: Classes couvertes et contrastes mesures
+        run: python3 scripts/verifier-site.py
+
+      # ⚠️ Les JSON-LD sont ecrits a la main dans les pages : une virgule de trop les rend
+      # invisibles aux moteurs sans casser l'affichage, donc sans que personne le voie.
+      - name: Chaque JSON-LD est valide, et aucun @id orphelin
+        run: |
+          python3 - <<'CONTROLE'
+          import glob, json, re, sys
+
+          definis, references, blocs = set(), set(), 0
+          for page in sorted(glob.glob("*.html")):
+              html = open(page, encoding="utf-8").read()
+              for brut in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+                  blocs += 1
+                  try:
+                      donnees = json.loads(brut)
+                  except json.JSONDecodeError as erreur:
+                      print(f"  ECHEC {page} : JSON-LD invalide, {erreur}")
+                      sys.exit(1)
+
+                  def parcours(noeud):
+                      if isinstance(noeud, dict):
+                          if "@id" in noeud:
+                              (definis if "@type" in noeud else references).add(noeud["@id"])
+                          for valeur in noeud.values():
+                              parcours(valeur)
+                      elif isinstance(noeud, list):
+                          for valeur in noeud:
+                              parcours(valeur)
+
+                  parcours(donnees)
+
+          orphelins = sorted(references - definis)
+          print(f"  {blocs} bloc(s) JSON-LD, {len(definis)} noeud(s) defini(s)")
+          if orphelins:
+              print("  ECHEC : @id references mais jamais definis :")
+              for identifiant in orphelins:
+                  print(f"    {identifiant}")
+              sys.exit(1)
+          print("  OK : aucun @id orphelin.")
+          CONTROLE
+
+      # ⚠️ Une page servie mais absente du sitemap n'existe pas pour un moteur. Le cas s'est
+      # produit : `/details-techniques` repondait 200 et n'y etait pas.
+      - name: Chaque page est declaree au sitemap
+        run: |
+          python3 - <<'CONTROLE'
+          import glob, re, sys
+          from urllib.parse import urlparse
+
+          # ⚠️ Le chemin se lit avec `urlparse`, pas en decoupant la chaine : une premiere version
+          # decoupait sur le dernier `/` apres avoir retire le `/` final, ce qui rendait le NOM DE
+          # DOMAINE pour la racine et signalait `index` comme absent. Un garde-fou faussement
+          # rouge finit ignore, donc il valait mieux le corriger que corriger le sitemap.
+          declarees = {
+              urlparse(url).path.strip("/") or "index"
+              for url in re.findall(r"<loc>([^<]+)</loc>", open("sitemap.xml", encoding="utf-8").read())
+          }
+          # Le 404 n'a rien a faire dans un sitemap : il porte `noindex`.
+          attendues = {
+              "index" if page == "index.html" else page[:-5]
+              for page in glob.glob("*.html") if page != "404.html"
+          }
+          manquantes = sorted(attendues - declarees)
+          print(f"  pages : {len(attendues)}, declarees : {len(declarees)}")
+          if manquantes:
+              print("  ECHEC : servies mais absentes du sitemap :")
+              for page in manquantes:
+                  print(f"    {page}")
+              sys.exit(1)
+          print("  OK : chaque page est declaree.")
+          CONTROLE

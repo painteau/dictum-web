@@ -12,6 +12,19 @@
 /polices/*
   Cache-Control: public, max-age=31536000, immutable
 
+# ⛔ Un an et immuable, et c'est SEULEMENT acceptable parce que l'URL porte desormais une
+# empreinte du contenu (`style.css?v=...`, posee par `scripts/poser-empreintes.py`). Sans elle,
+# ce reglage figerait l'ancienne feuille chez les visiteurs pour un an.
+#
+# Le defaut de Cloudflare Pages etait `max-age=14400` : mesure le 2026-09-21, un navigateur passe
+# dans les quatre heures precedentes servait encore la feuille d'AVANT la refonte, et rien ne le
+# signalait puisque la page s'affichait simplement d'une autre epoque.
+#
+# ⚠️ Le navigateur met en cache l'URL COMPLETE, requete comprise : une empreinte differente est
+# donc un objet different, et le fichier se recharge des que son contenu change.
+/style.css
+  Cache-Control: public, max-age=31536000, immutable
+
 # Meme raison pour l'image de partage : son contenu est fige, et c'est la ressource la plus
 # lourde du site.
 /partage.png

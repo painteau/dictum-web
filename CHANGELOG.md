@@ -15,6 +15,43 @@ est désormais le seul récit de ce dépôt.
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-09-21
+
+### Corrigé
+
+- ⛔ **Il n'y avait pas de cache buster, alors que c'est une règle du parc, et le défaut s'est
+  manifesté pendant les essais mêmes.** `style.css` était servi avec `max-age=14400` sans empreinte
+  dans son URL : le navigateur calculait encore `Segoe UI` pour le grand titre alors que la feuille
+  **servie** déclarait bien Fraunces. J'ai d'abord cru à un déploiement en retard, puis à un cache
+  de bord ; c'était le cache du navigateur, avec quatre heures d'avance sur la vérité.
+
+  Le symptôme est le pire de sa famille : la page n'est pas cassée, elle est simplement **d'une
+  autre époque**, et rien ne le signale.
+
+  `scripts/poser-empreintes.py` pose désormais `style.css?v=<empreinte>` dans les quatre pages.
+  ⚠️ **L'empreinte est DÉRIVÉE du contenu**, jamais un numéro écrit à la main : un numéro à côté du
+  fichier qu'il décrit finit toujours par mentir, et un cache buster qui contient une version en
+  clair la divulgue. Le cache de la feuille passe donc à un an et immuable, ce qui n'est
+  acceptable **que** parce que l'URL change avec le contenu.
+
+- **Un contrôle de sitemap qui se trompait a été corrigé avant d'être gardé** : il découpait l'URL
+  sur le dernier `/` et rendait le nom de domaine pour la racine, donc il signalait `index` comme
+  absent alors qu'il était déclaré. Un garde-fou faussement rouge finit ignoré, donc il valait
+  mieux corriger la logique que le sitemap.
+
+### Ajouté
+
+- **Une CI, parce que les contrôles de ce dépôt existaient sans que rien ne les exécute.** Un
+  garde-fou lancé à la main le jour où on l'écrit, puis plus jamais, ne dit rien : il donne
+  seulement le sentiment d'être couvert. Quatre étapes, **chacune prouvée rouge** :
+
+  | Contrôle | Ce qu'il attrape |
+  |---|---|
+  | Empreintes à jour | un CSS modifié sans reposer l'empreinte, donc un cache figé un an |
+  | Classes et contrastes | une classe sans règle, et tout contraste sous le seuil AA |
+  | JSON-LD et `@id` | une virgule de trop qui rend le schema invisible sans casser l'affichage |
+  | Sitemap complet | une page servie mais non déclarée, donc inexistante pour un moteur |
+
 ## [1.3.0] - 2026-09-21
 
 ### Corrigé

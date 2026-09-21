@@ -7,7 +7,8 @@
   </url>
   <!-- Ajoutee le 2026-09-21 : la page existait et repondait 200 depuis sa creation, mais elle
        etait absente d'ici, donc invisible a tout robot qui se fie au sitemap. Un contenu servi
-       et non declare est un contenu qui n'existe pas pour un moteur. -->
+       et non declare est un contenu qui n'existe pas pour un moteur. Un controle de CI verifie
+       desormais que chaque page servie est declaree. -->
   <url>
     <loc>https://dictum.breizhzion.com/details-techniques</loc>
     <changefreq>monthly</changefreq>
