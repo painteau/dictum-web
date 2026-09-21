@@ -25,16 +25,41 @@
         "sameAs": ["https://github.com/bzhzion"]
       },
       {
+        "@type": "WebSite",
+        "@id": "https://dictum.breizhzion.com/#site",
+        "name": "Dictum",
+        "url": "https://dictum.breizhzion.com/",
+        "inLanguage": "fr-FR",
+        "publisher": { "@id": "https://breizhzion.com/#organization" },
+        "about": { "@id": "https://dictum.breizhzion.com/#app" }
+      },
+      {
         "@type": "SoftwareApplication",
         "@id": "https://dictum.breizhzion.com/#app",
         "name": "Dictum",
+        "alternateName": "Dictum, dictée vocale locale",
         "description": "Logiciel de dictée vocale dont la reconnaissance vocale s'exécute sur l'ordinateur de l'utilisateur : aucun enregistrement n'est transmis à un tiers.",
         "applicationCategory": "UtilitiesApplication",
+        "applicationSubCategory": "Dictée vocale et reconnaissance de la parole",
         "operatingSystem": "Windows 10, Windows 11, Linux",
+        "inLanguage": ["fr-FR", "en"],
         "downloadUrl": "https://dl.breizhzion.com/dictum-desktop/Dictum-Setup-x64.exe",
+        "installUrl": "https://dictum.breizhzion.com/#telecharger",
+        "isAccessibleForFree": true,
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
         "publisher": { "@id": "https://breizhzion.com/#organization" },
-        "sameAs": ["https://github.com/bzhzion/dictum-desktop"]
+        "sameAs": ["https://github.com/bzhzion/dictum-desktop"],
+        "featureList": [
+          "Reconnaissance vocale exécutée localement, sans transmission des enregistrements",
+          "Fonctionne sans connexion internet",
+          "Dictée déclenchée par un raccourci clavier global",
+          "Saisie du texte dans l'application au premier plan",
+          "Repli sur le presse-papiers quand la fenêtre cible refuse la saisie simulée",
+          "Mise en forme du français et substitutions définies par l'utilisateur",
+          "Historique local, dont la taille est réglable et peut être nulle"
+        ],
+        "softwareRequirements": "Windows 10 ou 11 en 64 bits, ou une distribution Linux avec une session X11",
+        "permissions": "Accès au microphone. Aucun accès réseau nécessaire pour transcrire."
       },
       {
         "@type": "FAQPage",
@@ -65,6 +90,15 @@
     ]
   }
   </script>
+  <link rel="preload" href="polices/Fraunces-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="polices/IBMPlexSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <meta property="og:image" content="https://dictum.breizhzion.com/partage.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dictum : dictez vos notes, personne d'autre ne les entend.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Dictum">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 

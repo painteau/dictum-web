@@ -19,40 +19,40 @@
    halo diffuse, l'anneau enferme. Le logo est deja deux cercles concentriques ;
    agrandi derriere le titre, il devient une frontiere.
 
-   POLICES, auto-hebergees : la CSP du site est `default-src 'self'` et ne sera pas
-   assouplie, donc aucune requete vers un hebergeur de polices tiers. Les deux
-   familles sont sous licence OFL, reproduite dans `polices/`.
+   POLICES : celles de l'application, pas celles du site. Detail et motif juste
+   en dessous. Auto-hebergees, la CSP etant `default-src 'self'` et ne devant pas
+   etre assouplie ; licences OFL dans `polices/`.
 
-   ⚠️ Le choix d'Atkinson Hyperlegible n'est pas decoratif : elle est dessinee par
-   le Braille Institute pour etre lisible par des personnes malvoyantes, avec des
-   lettres volontairement impossibles a confondre. Sur un produit dont l'argument
-   est la confiance et dont l'accessibilite est une exigence dure, la police faite
-   pour etre lue est le bon choix, pas un effet de style.
-
-   ⚠️ Newsreader est prise a sa taille optique 72pt, celle qui est dessinee POUR
-   le grand corps, et elle ne sert qu'aux titres et aux chiffres. Le sans garde
-   tout le fonctionnel : le serif conserve ainsi sa force parce qu'il est rare.
+   ⚠️ Fraunces ne sert qu'aux titres et aux chiffres, IBM Plex Sans porte tout le
+   reste : le serif garde sa force parce qu'il est rare.
    ═══════════════════════════════════════════════════════════════════════════════ */
 
+/* ⛔ **Les memes dessins que l'application, et ce n'est pas negociable.** Le site avait d'abord
+   recu deux familles choisies pour lui seul, alors que `dictum-desktop` embarque deja Fraunces,
+   IBM Plex Sans et IBM Plex Mono. Une marque qui change de typographie entre sa page et son
+   logiciel se contredit a l'endroit ou elle demande qu'on lui fasse confiance.
+   Les fichiers sont pris tels quels dans `painteau/cdn`, que le commentaire de
+   `src/styles/fontes.css` de l'application designe comme la source commune, et les empreintes
+   ont ete comparees : ce sont octet pour octet les memes. Licences OFL dans `polices/`.
+
+   ⚠️ Un seul ecart avec l'application, delibere : `font-display: swap` ici, `block` la-bas. Une
+   fenetre d'application est convoquee pour quelques secondes et un echange de fonte en cours de
+   lecture y gene plus qu'un chargement local ; une page web lue a distance doit au contraire
+   s'afficher avant que la fonte arrive. */
 @font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src: url('polices/atkinson-regular.woff2') format('woff2');
+  font-family: 'Fraunces';
+  src: url('polices/Fraunces-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('polices/IBMPlexSans-Variable.woff2') format('woff2-variations');
+  font-weight: 100 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('polices/IBMPlexMono-Regular.woff2') format('woff2');
   font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src: url('polices/atkinson-bold.woff2') format('woff2');
-  font-weight: 700; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Newsreader';
-  src: url('polices/newsreader-72pt-medium.woff2') format('woff2');
-  font-weight: 500; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Newsreader';
-  src: url('polices/newsreader-72pt-semibold.woff2') format('woff2');
-  font-weight: 600; font-style: normal; font-display: swap;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -79,9 +79,11 @@
   --radius: 10px;
   --radius-s: 4px;
 
-  --serif: 'Newsreader', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
-  --sans:  'Atkinson Hyperlegible', system-ui, -apple-system, sans-serif;
-  --mono:  'Cascadia Code', 'Fira Code', ui-monospace, monospace;
+  /* Memes noms de roles que `src/styles/socle.css` de l'application, avec les memes replis :
+     un lecteur qui compare les deux ne doit pas trouver deux vocabulaires pour une seule marque. */
+  --titre: 'Fraunces', Georgia, serif;
+  --corps: 'IBM Plex Sans', system-ui, sans-serif;
+  --mono:  'IBM Plex Mono', ui-monospace, monospace;
 
   /* Rythme vertical : une seule valeur declinee, pour que rien ne flotte. */
   --section: clamp(72px, 9vw, 128px);
@@ -96,7 +98,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--sans);
+  font-family: var(--corps);
   background: var(--bg);
   color: var(--text);
   font-size: 1.0625rem;
@@ -132,13 +134,13 @@ code { font-family: var(--mono); font-size: .92em; }
    Le serif ne sert qu'ici et aux chiffres. Interlettrage negatif et interligne
    serre : a grand corps, une composition lache fait amateur. */
 h1, h2 {
-  font-family: var(--serif); font-weight: 600;
+  font-family: var(--titre); font-weight: 600;
   letter-spacing: -.015em; line-height: 1.08;
   text-wrap: balance;
 }
 h1 { font-size: clamp(2.5rem, 6.2vw, 4.3rem); }
 h2 { font-size: clamp(1.75rem, 3.6vw, 2.6rem); }
-h3 { font-family: var(--sans); font-weight: 700; font-size: 1.05rem; line-height: 1.4; }
+h3 { font-family: var(--corps); font-weight: 700; font-size: 1.05rem; line-height: 1.4; }
 
 /* ── Navigation ─────────────────────────────────────────────────────────────── */
 nav {
@@ -153,7 +155,7 @@ nav {
 }
 .logo {
   display: flex; align-items: center; gap: 11px;
-  font-family: var(--serif); font-weight: 600; font-size: 1.32rem;
+  font-family: var(--titre); font-weight: 600; font-size: 1.32rem;
   letter-spacing: -.01em; color: var(--text);
 }
 .logo:hover { text-decoration: none; color: var(--text); }
@@ -169,7 +171,7 @@ nav {
    l'application grand public, pas a celui du document. */
 .btn-primary, .btn-secondary, .btn-nav {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  font-family: var(--sans); font-weight: 700; font-size: .98rem;
+  font-family: var(--corps); font-weight: 700; font-size: .98rem;
   padding: 14px 24px; border-radius: var(--radius-s);
   border: 1px solid transparent; cursor: pointer;
   transition: background .16s, border-color .16s, transform .16s;
@@ -264,7 +266,7 @@ nav {
 .stat { padding: 22px 20px 4px 0; }
 .stat + .stat { padding-left: 22px; border-left: var(--filet); }
 .stat-n {
-  display: block; font-family: var(--serif); font-weight: 500;
+  display: block; font-family: var(--titre); font-weight: 500;
   font-size: 1.62rem; line-height: 1.15; color: var(--blue-l);
   font-variant-numeric: tabular-nums; text-wrap: balance;
 }
@@ -313,7 +315,7 @@ nav {
 .mobile-inner h2::before {
   content: counter(section, decimal-leading-zero);
   display: block; margin-bottom: 14px;
-  font-family: var(--sans); font-weight: 700; font-size: .78rem;
+  font-family: var(--corps); font-weight: 700; font-size: .78rem;
   letter-spacing: .16em; color: var(--blue);
 }
 .section-header > p { margin-top: 18px; color: var(--muted); font-size: 1.06rem; }
@@ -329,7 +331,7 @@ nav {
    vertical : c'est le seul endroit de la page ou le corps de texte passe au serif. */
 .probleme-chute {
   margin-top: 34px !important;
-  font-family: var(--serif); font-weight: 500; font-style: italic;
+  font-family: var(--titre); font-weight: 500; font-style: italic;
   font-size: clamp(1.3rem, 2.4vw, 1.7rem) !important; line-height: 1.35;
   color: var(--text) !important;
   padding-left: 22px; border-left: 2px solid var(--blue);
@@ -354,7 +356,7 @@ nav {
   .metiers .metier:not(:nth-child(3n+1)) { border-left: var(--filet); }
 }
 .metier h3 {
-  font-family: var(--serif); font-weight: 600; font-size: 1.22rem;
+  font-family: var(--titre); font-weight: 600; font-size: 1.22rem;
   letter-spacing: -.01em; line-height: 1.25;
 }
 .metier p { margin-top: 12px; color: var(--muted); font-size: .97rem; line-height: 1.65; }
@@ -366,7 +368,7 @@ nav {
   background: rgba(70,130,180,.07);
   border: 1px solid rgba(90,159,212,.22); border-radius: var(--radius);
 }
-.encart h3 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; }
+.encart h3 { font-family: var(--titre); font-weight: 600; font-size: 1.3rem; }
 .encart p { margin-top: 18px; line-height: 1.72; }
 /* La reserve juridique reste lisible : plus petite, jamais en petites lettres. */
 .encart-note {
@@ -399,7 +401,7 @@ nav {
 @media (min-width: 901px) { .step:not(:first-child) { border-left: var(--filet); } }
 @media (max-width: 900px) { .step { border-bottom: var(--filet); padding-left: 0 !important; } }
 .step-num {
-  flex-shrink: 0; font-family: var(--serif); font-weight: 500;
+  flex-shrink: 0; font-family: var(--titre); font-weight: 500;
   font-size: 2.1rem; line-height: 1; color: rgba(90,159,212,.55);
   font-variant-numeric: tabular-nums;
 }
@@ -445,7 +447,7 @@ nav {
 .faq summary {
   cursor: pointer; list-style: none;
   padding: 24px 48px 24px 0; position: relative;
-  font-family: var(--serif); font-weight: 600; font-size: 1.16rem;
+  font-family: var(--titre); font-weight: 600; font-size: 1.16rem;
   letter-spacing: -.005em; line-height: 1.35;
   transition: color .16s;
 }
@@ -505,7 +507,7 @@ nav {
 .page h2::before {
   content: counter(rubrique, decimal-leading-zero);
   display: block; margin-bottom: 12px;
-  font-family: var(--sans); font-weight: 700; font-size: .76rem;
+  font-family: var(--corps); font-weight: 700; font-size: .76rem;
   letter-spacing: .16em; color: var(--blue);
 }
 .page ul { margin-top: 18px; padding-left: 0; list-style: none; }
@@ -533,7 +535,7 @@ footer { padding: 56px 0 64px; border-top: var(--filet); background: var(--bg2);
 }
 .footer-brand {
   display: flex; align-items: center; gap: 10px;
-  font-family: var(--serif); font-weight: 600; font-size: 1.16rem;
+  font-family: var(--titre); font-weight: 600; font-size: 1.16rem;
 }
 .footer-links { display: flex; flex-wrap: wrap; gap: 24px; }
 .footer-links a { color: var(--muted); font-size: .93rem; }

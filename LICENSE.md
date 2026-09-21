@@ -4,7 +4,7 @@
 > copie de cette licence et son propre `NOTICE.md` pour les composants tiers.
 >
 > Elle ne couvre pas davantage les **deux familles de polices** redistribuees dans `polices/`,
-> Atkinson Hyperlegible (Braille Institute) et Newsreader (Production Type), toutes deux sous
+> Fraunces (Undercase Type) et IBM Plex (IBM), toutes deux sous
 > **licence SIL Open Font License 1.1**, reproduite integralement a cote des fichiers. L'OFL
 > exige que sa notice voyage avec chaque copie : c'est pour ca qu'elle est dans le depot et pas
 > seulement citee ici.

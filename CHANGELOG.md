@@ -15,6 +15,53 @@ est désormais le seul récit de ce dépôt.
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-09-21
+
+### Corrigé
+
+- ⛔ **Le site avait ses propres polices, différentes de celles de l'application, et c'est une
+  incohérence de marque que personne n'aurait dû introduire.** `dictum-desktop` embarque déjà
+  **Fraunces**, **IBM Plex Sans** et **IBM Plex Mono** ; la passe de design précédente avait
+  choisi Newsreader et Atkinson Hyperlegible pour le site seul. Une marque qui change de
+  typographie entre sa page et son logiciel se contredit exactement là où elle demande qu'on lui
+  fasse confiance.
+
+  Les fichiers sont désormais pris **tels quels** dans `painteau/cdn`, que le commentaire de
+  `src/styles/fontes.css` de l'application désigne comme la source commune au site, à
+  l'application et à l'app iOS. ✅ **Les empreintes ont été comparées** : ce sont octet pour octet
+  les mêmes. Les noms de rôles reprennent aussi ceux de l'application, `--titre`, `--corps`,
+  `--mono`, pour qu'un lecteur qui compare les deux feuilles ne trouve pas deux vocabulaires.
+
+  ⚠️ Un seul écart, délibéré : `font-display: swap` ici, `block` dans l'application. Une fenêtre
+  d'application est convoquée pour quelques secondes et un échange de police en cours de lecture
+  y gêne plus qu'un chargement local ; une page lue à distance doit au contraire s'afficher avant
+  que la police arrive.
+
+### Ajouté, après audit GEO mesuré
+
+- **Une image de partage** (`partage.png`, 1200 x 630). ⚠️ **Elle manquait sur les trois pages** :
+  un lien vers le site collé dans un courriel ou un message n'affichait aucune vignette, alors que
+  c'est souvent la première chose qu'on voit du produit. Elle est générée depuis
+  `scripts/carte-partage.html`, versionné : une image binaire dont le gabarit n'existe nulle part
+  devient intouchable dès que la marque bouge.
+
+- **`/details-techniques` dans le sitemap**, dont elle était absente depuis sa création. Elle
+  répondait 200 et était donc invisible à tout robot qui se fie au sitemap : un contenu servi et
+  non déclaré n'existe pas pour un moteur.
+
+- **Du schema.org sur les pages secondaires**, qui n'en avaient aucun : `AboutPage` et
+  `TechArticle`, plus un nœud **`WebSite`** sur l'accueil. ⚠️ Ce dernier corrige un défaut que
+  j'avais introduit dans le même geste : les deux pages secondaires référençaient un `@id` de
+  site que l'accueil ne définissait pas. Un contrôle des `@id` orphelins le vérifie désormais.
+
+- **Le préchargement des deux polices variables**, sans quoi le grand titre s'affichait d'abord en
+  Georgia puis sautait.
+
+- **Un cache d'un an et immuable sur `/polices/*`**. Mesuré avant correction : Cloudflare Pages les
+  servait avec `max-age=14400`, soit quatre heures, donc un visiteur qui revenait le lendemain les
+  retéléchargeait. Et `font-src 'self'` déclaré explicitement dans la CSP, au lieu de reposer sur
+  le repli de `default-src`.
+
 ## [1.2.0] - 2026-09-21
 
 ### Modifié
