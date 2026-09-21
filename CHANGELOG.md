@@ -15,6 +15,71 @@ est désormais le seul récit de ce dépôt.
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-09-21
+
+### Modifié
+
+- **L'esthétique du site jouait contre son message, et c'était le vrai défaut.** Halos flous en
+  dégradé, sections centrées, cartes arrondies partout : c'est le vocabulaire visuel d'une jeune
+  pousse qui lève des fonds, et le public de ce site a précisément appris à s'en méfier. Un avocat
+  fait confiance à un document composé, pas à une page qui brille.
+
+  Direction retenue, **le mémo plutôt que la page d'atterrissage** : filets d'un pixel comme seule
+  structure, sections numérotées comme des articles, alignement à gauche, et un serif éditorial
+  réservé aux grandes déclarations.
+
+  ⚠️ **La numérotation des sections vient du CSS** (`counter-increment`), pas du HTML : réordonner
+  une section ne laisse donc aucun numéro faux derrière elle.
+
+- **Les halos sont remplacés par un anneau, et ce n'est pas un choix décoratif.** Là où un halo
+  flou **diffuse**, un cercle **enferme**, ce qui est exactement le propos du produit. Ce sont les
+  deux cercles concentriques du logo, agrandis derrière le titre, et l'aperçu de l'application est
+  désormais **calé au centre de l'anneau** : l'application est littéralement enfermée dans le
+  cercle.
+
+  ⚠️ Cela a imposé de passer les dimensions de l'anneau **en pixels avec un centre déclaré en
+  variable** : en unités relatives, le centre se déplaçait avec la largeur de la fenêtre et rien
+  ne restait calé dessus.
+
+- **Deux polices, auto-hébergées, et aucune n'est un choix par défaut.** La CSP du site est
+  `default-src 'self'` et ne sera pas assouplie, donc les fichiers sont dans le dépôt, avec leur
+  licence OFL. 148 Ko au total.
+
+  **Atkinson Hyperlegible** pour le texte : elle est dessinée par le Braille Institute pour être
+  lisible par des personnes malvoyantes, avec des lettres volontairement impossibles à confondre.
+  Sur un produit dont l'argument est la confiance et dont l'accessibilité est une exigence dure,
+  la police faite pour être lue n'est pas un effet de style.
+
+  **Newsreader** pour les titres et les chiffres, prise à sa **taille optique 72pt**, celle qui
+  est dessinée pour le grand corps. ⚠️ La variable de la même famille pesait 210 Ko pour un usage
+  limité aux titres : la statique 72pt fait le même travail en 50 Ko. Et le serif garde sa force
+  parce qu'il est rare, le sans conservant tout le fonctionnel.
+
+- **Les chiffres du bandeau passent en grille à colonnes égales** : en `flex`, « Hors ligne »
+  repoussait ses voisines et les filets verticaux ne tombaient plus au même pas.
+
+### Ajouté
+
+- **Un grain de papier** en turbulence SVG `data:` à très basse opacité, qui enlève l'aspect
+  numérique plat sans se voir, et sans une requête réseau de plus.
+
+- **Le balayage des couleurs de texte écrites en dur** dans `scripts/verifier-site.py`. Les paires
+  nommées à la main ne couvrent que ce qu'on a pensé à nommer ; ce balayage éprouve chaque couleur
+  littérale de la feuille contre le pire fond du site. Il a immédiatement trouvé les deux que
+  cette passe venait d'introduire.
+
+  ⛔ **Et il a d'abord menti, pour la raison exacte que la règle du parc annonce.** Sa ligne de
+  regex est passée par un heredoc de shell, où le `\b` est devenu un **caractère de retour
+  arrière invisible** : le fichier s'affichait normalement et le balayage annonçait « aucune
+  couleur en dur » alors qu'il y en avait deux. Un garde-fou qui mentait, attrapé par
+  `verifier-caracteres-de-controle.py`, qui a nommé le caractère, sa position et le remède. Du
+  contenu de fichier ne passe jamais par un heredoc.
+
+- **Un repli explicite quand le JavaScript ne tourne pas** (`@media (scripting: none)`) et sous
+  `prefers-reduced-motion`. ⚠️ Sans la remise à `opacity: 1`, quelqu'un qui demande moins
+  d'animation voyait une page **vide** : les révélations au défilement laissaient tout invisible.
+
+
 ## [1.1.0] - 2026-09-21
 
 ### Modifié

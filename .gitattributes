@@ -41,3 +41,9 @@ Dockerfile text eol=lf
 *.ps1 text eol=crlf
 *.bat text eol=crlf
 *.cmd text eol=crlf
+
+# Les polices sont binaires : `text=auto` les detecte en principe, mais une normalisation
+# de fins de ligne sur un woff2 le corromprait SANS RIEN CASSER DE VISIBLE, la police de repli
+# prenant silencieusement le relais. On le declare explicitement plutot que de faire confiance
+# a la detection.
+*.woff2 binary

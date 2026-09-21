@@ -3,6 +3,12 @@
 > l'application Dictum elle-meme, qui vit dans `bzhzion/dictum-desktop` avec sa propre
 > copie de cette licence et son propre `NOTICE.md` pour les composants tiers.
 >
+> Elle ne couvre pas davantage les **deux familles de polices** redistribuees dans `polices/`,
+> Atkinson Hyperlegible (Braille Institute) et Newsreader (Production Type), toutes deux sous
+> **licence SIL Open Font License 1.1**, reproduite integralement a cote des fichiers. L'OFL
+> exige que sa notice voyage avec chaque copie : c'est pour ca qu'elle est dans le depot et pas
+> seulement citee ici.
+>
 > Ce depot redistribuait jusqu'au 2026-09-21 six binaires whisper.cpp sous licence MIT, que
 > l'ancienne version du logiciel telechargeait a l'execution. Ils ont ete retires avec elle, et
 > `NOTICE.md` avec eux : le nouveau logiciel embarque son moteur ou le telecharge depuis
