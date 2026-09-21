@@ -15,6 +15,35 @@ est désormais le seul récit de ce dépôt.
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-09-21
+
+### Corrigé
+
+- ⛔ **Sur téléphone, cinq métiers sur six étaient décalés de 30 pixels vers la droite, et « Hors
+  ligne » décalé sous « Zéro » qui ne l'était pas.** Signalé par painteau sur un vrai téléphone,
+  pas vu en réduisant la fenêtre.
+
+  La cause est un **sélecteur de fratrie dans une grille** : `.metier + .metier` et
+  `.stat + .stat` posaient le retrait et le filet sur tout élément qui suit un autre, et un
+  sélecteur de fratrie **ne sait rien des retours à la ligne d'une grille**. En une seule colonne,
+  « suit un autre » vaut donc pour toutes les cartes sauf la première ; en deux colonnes, pour la
+  première cellule de la deuxième ligne.
+
+  ⚠️ **`nth-child` n'aurait pas sauvé le cas des métiers** : la grille est en `auto-fit`, donc le
+  nombre de colonnes est implicite et aucune arithmétique ne peut le deviner.
+
+  Le correctif **supprime le problème au lieu de le contourner** : un filet et un retrait à gauche
+  de **chaque** cellule, la première comprise, comme painteau l'a proposé. Plus aucune cellule à
+  traiter à part, et le même rendu de une à trois colonnes.
+
+  ✅ **Vérifié par mesure plutôt qu'à l'œil** : sur une fenêtre de 393 pixels, les six métiers
+  sont tous à 22 pixels du bord, et les chiffres retombent à `[22, 189, 22, 189]`, donc deux
+  colonnes alignées.
+
+- **Le héros réservait 168 pixels de marge haute sur téléphone**, soit près d'un tiers de l'écran
+  avant le premier mot, alors que la barre fixe n'en occupe qu'une soixantaine. Ramené à 104, et
+  la hauteur minimale retirée sur petit écran.
+
 ## [1.4.0] - 2026-09-21
 
 ### Corrigé

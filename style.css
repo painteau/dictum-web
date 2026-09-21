@@ -208,6 +208,12 @@ nav {
   padding: 168px 28px 88px;
   display: flex; align-items: center;
 }
+/* Sur telephone, 168 px de marge haute mangent un tiers de l'ecran avant le premier mot, et la
+   barre fixe n'en occupe qu'une soixantaine. */
+@media (max-width: 700px) {
+  .hero { padding: 104px 22px 64px; min-height: 0; }
+  .container { padding: 0 22px; }
+}
 .hero-inner { position: relative; z-index: 2; max-width: 700px; width: 100%; margin: 0 auto; }
 @media (min-width: 1180px) {
   .hero-inner { margin: 0 auto 0 max(28px, calc((100vw - 1120px) / 2)); }
@@ -263,8 +269,12 @@ nav {
   margin-top: 52px; border-top: var(--filet-fort);
 }
 @media (max-width: 620px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } }
-.stat { padding: 22px 20px 4px 0; }
-.stat + .stat { padding-left: 22px; border-left: var(--filet); }
+/* ⛔ Le filet et le retrait sont sur CHAQUE cellule, et surtout PAS sur `.stat + .stat`. Un
+   selecteur de fratrie ignore les retours a la ligne d'une grille : en deux colonnes sur
+   telephone, la premiere cellule de la DEUXIEME ligne heritait donc d'un retrait et d'un filet
+   qui n'avaient plus aucun sens, et « Hors ligne » apparaissait decale sous « Zero » qui ne
+   l'etait pas. Uniforme veut dire aucun cas particulier, a n'importe quel nombre de colonnes. */
+.stat { padding: 22px 18px 4px; border-left: var(--filet); }
 .stat-n {
   display: block; font-family: var(--titre); font-weight: 500;
   font-size: 1.62rem; line-height: 1.15; color: var(--blue-l);
@@ -345,15 +355,16 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   border-top: var(--filet-fort);
 }
+/* ⛔ Meme correction que pour les chiffres du hero, et c'est le meme defaut qui se voyait le
+   mieux ici : avec `.metier + .metier`, en une seule colonne sur telephone, toutes les cartes
+   SAUF la premiere etaient decalees de 30 px. Le selecteur de fratrie ne sait rien des retours a
+   la ligne de la grille, et `nth-child` ne peut pas non plus trancher puisque `auto-fit` rend le
+   nombre de colonnes implicite. Un filet a GAUCHE DE CHAQUE cellule supprime le probleme au lieu
+   de le contourner : plus de premiere cellule a traiter a part, et le meme rendu de une a trois
+   colonnes. */
 .metier {
-  padding: 28px 30px 30px 0; border-bottom: var(--filet);
+  padding: 28px 30px 30px; border-left: var(--filet); border-bottom: var(--filet);
   transition: background .18s;
-}
-.metier + .metier { padding-left: 30px; }
-@media (min-width: 1024px) {
-  /* Le filet vertical ne doit pas apparaitre en debut de ligne de la grille. */
-  .metiers .metier:nth-child(3n+1) { padding-left: 0; border-left: none; }
-  .metiers .metier:not(:nth-child(3n+1)) { border-left: var(--filet); }
 }
 .metier h3 {
   font-family: var(--titre); font-weight: 600; font-size: 1.22rem;
