@@ -1,0 +1,41 @@
+# Dictum
+
+> Dictée vocale pour Windows et Linux. La reconnaissance vocale s'exécute sur la machine de
+> l'utilisateur : aucun enregistrement n'est envoyé nulle part, et le logiciel fonctionne sans
+> connexion internet. Gratuit, sans compte. Écrit en Rust, code source public sous licence
+> BZ-1.1 (accès libre, usage personnel autorisé, usage commercial réservé à l'association).
+> Édité par BREIZHZION, association d'intérêt général à Villeurbanne.
+
+## Ce que le logiciel fait
+
+- Dictée par raccourci global : maintenir une touche, parler, relâcher, le texte est saisi dans
+  l'application au premier plan comme au clavier.
+- Repli sur le presse-papiers quand la fenêtre cible refuse la saisie simulée (champ de mot de
+  passe, application élevée), avec un message qui dit quoi faire.
+- Mise en forme du français : capitalisation, espaces insécables, substitutions définies par
+  l'utilisateur.
+- Langues : français, anglais, ou détection automatique. Pas davantage pour l'instant.
+- Trois modèles au choix (Small 488 Mo par défaut, Medium 1,5 Go, Large v3 3,1 Go), téléchargés
+  depuis le logiciel et vérifiés par empreinte.
+- Trois moteurs : processeur (embarqué dans l'installateur Windows), Vulkan pour toute carte
+  graphique, CUDA pour NVIDIA seulement et proposé uniquement si un pilote est détecté.
+- Historique local des dictées, dans un fichier sur le disque.
+
+## Ce que le logiciel ne fait pas
+
+- Pas de transcription en continu, pas de reformulation par un modèle de langue, pas d'API HTTP
+  locale, pas d'extension d'éditeur. Une version antérieure et abandonnée les avait.
+- Sous Linux, la dictée fonctionne sur une session X11 ; Wayland n'est pas pris en charge.
+- Sur macOS, le logiciel se compile mais la dictée n'est pas disponible.
+
+## Documentation
+
+- [Site](https://dictum.breizhzion.com): présentation, mesures de vitesse, procédures d'installation
+- [Dépôt source](https://github.com/bzhzion/dictum-desktop): code Rust, licence BZ-1.1, notices tierces
+
+## Téléchargement
+
+- [Installateur Windows](https://dl.breizhzion.com/dictum-desktop/Dictum-Setup-x64.exe): nom fixe, toujours la dernière version
+- [Version publiée](https://dl.breizhzion.com/dictum-desktop/latest.json): manifeste JSON lisible par une machine
+- [Dépôt apt](https://apt.breizhzion.com): Debian et Ubuntu, paquet `dictum`
+- [Dépôt pacman](https://pacman.breizhzion.com): Arch et dérivées, paquet `dictum-bin`

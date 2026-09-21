@@ -1,0 +1,14 @@
+{
+  "_comment": "Annonces poussees a l'app Dictum SANS passer par une mise a jour du store. L'app lit ce fichier au demarrage (best-effort : silencieux hors ligne ou si le fichier est absent). Ajouter un objet dans 'announcements' le fait apparaitre une seule fois par appareil, puis il est marque comme vu. Ne JAMAIS reutiliser un 'id' deja publie : un appareil qui l'a deja vu ne le reverra pas. Champs : id (obligatoire, unique), title (obligatoire), body (obligatoire), type (info|warning|update), icon (un emoji), date, cta_label + cta_url (http/https uniquement). Bornes appliquees cote app : 20 annonces max, titre 200 car, corps 1000 car.",
+  "_exemple": {
+    "id": "2026-09-transcription-plus-rapide",
+    "title": "Transcription plus rapide",
+    "body": "Le modele Small transcrit desormais deux fois plus vite sur iPhone 16.",
+    "type": "update",
+    "icon": "⚡",
+    "date": "2026-09-11",
+    "cta_label": "Voir les nouveautes",
+    "cta_url": "https://dictum.breizhzion.com/"
+  },
+  "announcements": []
+}

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictum : dictée vocale locale, rien ne quitte votre ordinateur</title>
+  <meta name="description" content="Dictée vocale pour Windows et Linux. La transcription se fait sur votre machine : aucun enregistrement n'est envoyé nulle part. Gratuit, sans compte, sans abonnement.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://dictum.breizhzion.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dictum : dictée vocale locale">
+  <meta property="og:description" content="Dictée vocale pour Windows et Linux. La transcription se fait sur votre machine : aucun enregistrement n'est envoyé nulle part.">
+  <meta property="og:url" content="https://dictum.breizhzion.com/">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://breizhzion.com/#organization",
+        "name": "BREIZHZION",
+        "url": "https://breizhzion.com",
+        "logo": "https://breizhzion.com/favicon.svg",
+        "sameAs": ["https://github.com/bzhzion"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://dictum.breizhzion.com/#app",
+        "name": "Dictum",
+        "description": "Dictée vocale pour Windows et Linux. La transcription se fait localement : aucun enregistrement ne quitte l'ordinateur.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows 10, Windows 11, Linux",
+        "downloadUrl": "https://dl.breizhzion.com/dictum-desktop/Dictum-Setup-x64.exe",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "publisher": { "@id": "https://breizhzion.com/#organization" },
+        "sameAs": ["https://github.com/bzhzion/dictum-desktop"]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "codeRepository": "https://github.com/bzhzion/dictum-desktop",
+        "programmingLanguage": "Rust",
+        "license": "https://github.com/bzhzion/dictum-desktop/blob/main/LICENSE.md",
+        "isPartOf": { "@id": "https://dictum.breizhzion.com/#app" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="none" stroke="#4682b4" stroke-width="2"/><circle cx="16" cy="16" r="6" fill="#4682b4"/></svg>
+        Dictum
+      </a>
+      <div class="nav-links">
+        <a href="#fonctionnalites">Ce que ça fait</a>
+        <a href="#moteurs">Vitesse</a>
+        <a href="#installer">Installer</a>
+        <a href="https://github.com/bzhzion/dictum-desktop" rel="noopener" class="btn-nav">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          Code source
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+    </div>
+    <div class="hero-inner">
+      <p class="badge">Windows et Linux · logiciel libre d'accès · sans compte</p>
+      <h1>Dictez. <span class="gradient">Rien ne sort.</span></h1>
+      <p class="hero-sub">Vous maintenez une touche, vous parlez, le texte s'écrit là où se trouve votre curseur. La reconnaissance vocale tourne sur votre propre machine : <strong>aucun enregistrement n'est envoyé nulle part</strong>, et Dictum fonctionne sans connexion internet.</p>
+      <div class="hero-actions">
+        <a href="https://dl.breizhzion.com/dictum-desktop/Dictum-Setup-x64.exe" class="btn-primary" id="telechargement">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm6 4H6v-2h12v2z"/></svg>
+          <span id="telechargement-libelle">Télécharger pour Windows</span>
+        </a>
+        <a href="#installer" class="btn-secondary">Installer sous Linux</a>
+      </div>
+      <p class="hero-note" id="version-note">Installateur Windows 64 bits. Pour Linux, un dépôt apt et un dépôt pacman.</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">0</span><span class="stat-l">octet envoyé</span></div>
+        <div class="stat"><span class="stat-n">0 €</span><span class="stat-l">et sans compte</span></div>
+        <div class="stat"><span class="stat-n">2</span><span class="stat-l">systèmes</span></div>
+        <div class="stat"><span class="stat-n">7 s</span><span class="stat-l">pour 30 s dictées</span></div>
+      </div>
+    </div>
+    <!-- Apercu de l'icone de zone de notification. ⚠️ Les libelles sont ceux de
+         `src-tauri/src/barre.rs`, releves et non inventes : une maquette qui montre un menu que
+         le logiciel n'a pas est un mensonge de plus, et c'est exactement ce que l'ancien site
+         faisait. -->
+    <div class="tray-preview" aria-hidden="true">
+      <div class="tray-icon idle"></div>
+      <div class="tray-menu">
+        <div class="tray-item tray-etat">Dictum : prêt</div>
+        <div class="tray-sep"></div>
+        <div class="tray-item">Dicter</div>
+        <div class="tray-item">Ouvrir Dictum</div>
+        <div class="tray-sep"></div>
+        <div class="tray-item muted">Quitter</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="fonctionnalites">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ce que Dictum fait</h2>
+        <p>Cette liste décrit la version que vous pouvez télécharger aujourd'hui, et rien de plus.</p>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card feature-highlight">
+          <h3>La transcription reste chez vous</h3>
+          <p>Le modèle de reconnaissance vocale s'exécute sur votre ordinateur. Il n'y a aucun serveur dans la boucle, aucune clé d'API à fournir, et rien à accepter. Débranchez le réseau, Dictum continue de fonctionner.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Le texte arrive où vous écrivez</h3>
+          <p>Dictum tape le texte dans l'application au premier plan, comme si vous le saisissiez au clavier. Traitement de texte, navigateur, terminal, messagerie : il n'y a rien à copier.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Un repli quand la saisie est refusée</h3>
+          <p>Certaines fenêtres refusent la saisie simulée, notamment les champs de mot de passe et les applications lancées en administrateur. Dictum le détecte, met le texte dans le presse-papiers et vous dit quoi faire, au lieu de perdre votre dictée en silence.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Un raccourci global</h3>
+          <p>La touche de dictée fonctionne depuis n'importe quelle application, même quand la fenêtre de Dictum est fermée. Le logiciel vit dans la zone de notification et deux bips vous disent quand l'enregistrement commence et quand il s'arrête.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Mise en forme du français</h3>
+          <p>Majuscule en début de phrase, espaces insécables avant les deux-points et les points d'exclamation, et vos propres substitutions pour les mots que la reconnaissance écrit mal. Les cas qui ressemblent à de la typographie sans en être, comme <code>14:30</code> ou <code>https://</code>, sont laissés tranquilles.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Français, anglais, ou détection</h3>
+          <p>Vous fixez la langue, ou vous laissez le modèle la reconnaître tout seul. Fixer la langue quand vous la connaissez donne de meilleurs résultats qu'une détection automatique.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Un historique local</h3>
+          <p>Les dictées récentes sont conservées dans un fichier sur votre disque, pour retrouver un texte perdu. Le nombre d'entrées gardées se règle, et vider l'historique le vide vraiment.</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Vérification de ce qui est téléchargé</h3>
+          <p>Les modèles de reconnaissance vocale et les moteurs accélérés sont volumineux et se téléchargent séparément. Chaque fichier est vérifié par son empreinte : un téléchargement interrompu ou altéré est rejeté au lieu d'être utilisé.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="moteurs">
+    <div class="container">
+      <div class="section-header">
+        <h2>Comment ça marche</h2>
+        <p>Une touche, votre voix, le texte.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Maintenez la touche</h3>
+            <p>Un premier bip vous confirme que le microphone écoute.</p>
+          </div>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Parlez</h3>
+            <p>L'icône de la zone de notification change d'état pendant l'enregistrement.</p>
+          </div>
+        </div>
+        <div class="step-arrow" aria-hidden="true">→</div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Relâchez</h3>
+            <p>Second bip, transcription, puis le texte s'écrit à l'emplacement de votre curseur.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="models">
+        <h3>Le modèle décide de la précision et de l'attente</h3>
+        <p class="models-intro">Trois modèles au choix, téléchargés depuis Dictum. Les durées ci-dessous ont été mesurées sur le processeur, pour une même dictée d'une trentaine de secondes.</p>
+        <div class="models-grid">
+          <div class="model-card">
+            <div class="model-badge">Par défaut</div>
+            <h4>Small</h4>
+            <p><strong>488 Mo</strong> à télécharger. Environ <strong>7 secondes</strong> de transcription. Le meilleur compromis pour de la dictée courante, et c'est celui que Dictum propose en premier.</p>
+            <div class="model-tags"><span class="tag">Le plus rapide</span></div>
+          </div>
+          <div class="model-card">
+            <h4>Medium</h4>
+            <p><strong>1,5 Go</strong> à télécharger. Environ <strong>18 secondes</strong>, soit deux fois et demie l'attente du modèle Small, pour un gain de précision que la dictée courante ne justifie pas toujours.</p>
+            <div class="model-tags"><span class="tag">Plus précis</span></div>
+          </div>
+          <div class="model-card model-card-alt">
+            <div class="model-badge model-badge-alt">Précision maximale</div>
+            <h4>Large v3</h4>
+            <p><strong>3,1 Go</strong> à télécharger. À réserver à une carte graphique : sur processeur seul, l'attente devient plus longue que le temps gagné à ne pas taper.</p>
+            <div class="model-tags"><span class="tag">Carte graphique conseillée</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="models">
+        <h3>Une carte graphique accélère la transcription</h3>
+        <p class="models-intro">Dictum sait utiliser trois moteurs. Le processeur suffit et il est déjà inclus dans l'installateur Windows : vous pouvez dicter dès la fin de l'installation, sans rien télécharger d'autre. Les deux autres se téléchargent depuis les réglages si vous les voulez.</p>
+        <div class="models-grid">
+          <div class="model-card">
+            <div class="model-badge">Inclus</div>
+            <h4>Le processeur</h4>
+            <p>Fonctionne partout, sans pilote ni téléchargement. C'est le seul moteur dont Dictum ne peut pas se passer, donc c'est celui qui est embarqué : si le reste est injoignable, vous perdez la vitesse, jamais la capacité à dicter.</p>
+          </div>
+          <div class="model-card">
+            <h4>N'importe quelle carte graphique</h4>
+            <p>Moteur Vulkan, <strong>21 Mo</strong>. Fonctionne avec les cartes AMD, Intel et NVIDIA. Mesuré <strong>trois fois et demie plus rapide</strong> que le processeur sur une carte d'entrée de gamme déjà ancienne.</p>
+            <div class="model-tags"><span class="tag">AMD</span><span class="tag">Intel</span><span class="tag">NVIDIA</span></div>
+          </div>
+          <div class="model-card">
+            <h4>Une carte NVIDIA</h4>
+            <p>Moteur CUDA, <strong>plus de 600 Mo</strong> pour environ 15 % de vitesse en plus que Vulkan. Dictum ne le propose que s'il détecte un pilote NVIDIA sur la machine, pour ne pas faire télécharger à quelqu'un un moteur qui ne démarrera pas chez lui.</p>
+            <div class="model-tags"><span class="tag">NVIDIA seulement</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="install" id="installer">
+    <div class="container">
+      <div class="section-header">
+        <h2>Installer</h2>
+        <p>Choisissez votre système.</p>
+      </div>
+
+      <div class="onglets" role="tablist" aria-label="Système d'exploitation">
+        <button class="onglet actif" role="tab" id="onglet-windows" aria-controls="volet-windows" aria-selected="true">Windows</button>
+        <button class="onglet" role="tab" id="onglet-debian" aria-controls="volet-debian" aria-selected="false">Debian et Ubuntu</button>
+        <button class="onglet" role="tab" id="onglet-arch" aria-controls="volet-arch" aria-selected="false">Arch</button>
+      </div>
+
+      <div class="volet" id="volet-windows" role="tabpanel" aria-labelledby="onglet-windows">
+        <p>Un seul fichier à télécharger et à ouvrir. L'installation ne demande pas les droits administrateur, et le moteur de transcription ainsi que les bibliothèques Visual C++ nécessaires sont déjà dedans.</p>
+        <a href="https://dl.breizhzion.com/dictum-desktop/Dictum-Setup-x64.exe" class="btn-primary" id="telechargement-2">Dictum-Setup-x64.exe</a>
+        <p class="volet-note">Windows 10 ou 11, 64 bits. Au premier lancement, Dictum vous demande quel modèle télécharger.</p>
+      </div>
+
+      <div class="volet" id="volet-debian" role="tabpanel" aria-labelledby="onglet-debian" hidden>
+        <p>Dictum est publié sur le dépôt apt de l'association. L'ajouter une fois suffit : les versions suivantes arrivent ensuite avec vos mises à jour habituelles.</p>
+        <pre class="code-block"><code>curl -fsSL https://apt.breizhzion.com/KEY.gpg \
+  | sudo gpg --dearmor -o /usr/share/keyrings/breizhzion.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/breizhzion.gpg] \
+https://apt.breizhzion.com stable main" \
+  | sudo tee /etc/apt/sources.list.d/breizhzion.list
+
+sudo apt update &amp;&amp; sudo apt install dictum</code></pre>
+        <p class="volet-note">Le paquet déclare ses dépendances, elles s'installent avec lui. Si vous préférez ne pas ajouter de dépôt, le paquet seul est <a href="https://dl.breizhzion.com/dictum-desktop/Dictum-Linux-x64.deb">téléchargeable directement</a>.</p>
+      </div>
+
+      <div class="volet" id="volet-arch" role="tabpanel" aria-labelledby="onglet-arch" hidden>
+        <p>Dictum est publié sur le dépôt pacman de l'association, paquets signés.</p>
+        <pre class="code-block"><code>printf '\n[breizhzion]\nSigLevel = Required DatabaseRequired\nServer = https://pacman.breizhzion.com/$arch\n' \
+  | sudo tee -a /etc/pacman.conf
+
+curl -fsSL https://pacman.breizhzion.com/KEY.gpg | sudo pacman-key --add -
+sudo pacman-key --lsign-key apt@breizhzion.com
+
+sudo pacman -Syu dictum-bin</code></pre>
+        <p class="volet-note"><strong>Utilisez bien <code>-Syu</code> et non <code>-Sy</code></strong> : synchroniser la base puis n'installer qu'un seul paquet est une mise à jour partielle, contre laquelle Arch met explicitement en garde.</p>
+      </div>
+
+      <p class="install-avertissement"><strong>Sous Linux, la dictée fonctionne sous X11.</strong> Sur une session Wayland, le raccourci global et l'écriture dans l'application active ne sont pas encore pris en charge. Sur macOS, rien n'est disponible pour l'instant.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="none" stroke="#4682b4" stroke-width="2"/><circle cx="16" cy="16" r="6" fill="#4682b4"/></svg>
+          <span>Dictum</span>
+        </div>
+        <div class="footer-links">
+          <a href="/a-propos">À propos</a>
+          <a href="https://github.com/bzhzion/dictum-desktop" rel="noopener">Code source</a>
+          <a href="https://github.com/bzhzion/dictum-desktop/issues" rel="noopener">Signaler un problème</a>
+          <a href="https://breizhzion.com" rel="noopener">BREIZHZION</a>
+        </div>
+        <div class="footer-note">Édité par BREIZHZION · Windows et Linux · écrit en Rust</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Onglets d'installation. Pas de dependance : trois boutons et trois volets.
+    const onglets = document.querySelectorAll('.onglet');
+    onglets.forEach(bouton => {
+      bouton.addEventListener('click', () => {
+        onglets.forEach(autre => {
+          autre.classList.remove('actif');
+          autre.setAttribute('aria-selected', 'false');
+          document.getElementById(autre.getAttribute('aria-controls')).hidden = true;
+        });
+        bouton.classList.add('actif');
+        bouton.setAttribute('aria-selected', 'true');
+        document.getElementById(bouton.getAttribute('aria-controls')).hidden = false;
+      });
+    });
+
+    // ⚠️ La version affichee est LUE, jamais ecrite en dur, et les liens visent le nom FIXE que
+    // la chaine de publication ecrase a chaque sortie. C'est la lecon du site de Hublot, qui a
+    // servi une version vieille de six sorties en repondant 200 a chaque fois : un lien perime
+    // ne casse rien de visible, donc rien ne le signale.
+    fetch('https://dl.breizhzion.com/dictum-desktop/latest.json')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(données => {
+        if (!données.version) return;
+        const libelle = document.getElementById('telechargement-libelle');
+        if (libelle) libelle.textContent = `Télécharger pour Windows ${données.version}`;
+        const note = document.getElementById('version-note');
+        if (note) note.textContent = `Version ${données.version}, installateur Windows 64 bits. Pour Linux, un dépôt apt et un dépôt pacman.`;
+      })
+      .catch(() => {}); // Hors ligne ou manifeste absent : le bouton marche quand meme.
+
+    const observateur = new IntersectionObserver(entrees => {
+      entrees.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.feature-card, .step, .model-card').forEach(el => observateur.observe(el));
+  </script>
+</body>
+</html>
