@@ -15,6 +15,25 @@ est désormais le seul récit de ce dépôt.
 
 ## [Unreleased]
 
+## [1.4.2] - 2026-09-21
+
+### Corrigé
+
+- ⛔ **Le site disait l'inverse de la vérité sur l'historique, et dans le sens qui nous dessert.**
+  Il laissait entendre que Dictum conserve les dictées par défaut et qu'on peut choisir de n'en
+  garder aucune. C'est l'inverse : **l'historique est désactivé par défaut** depuis le 2026-09-18,
+  rien n'est écrit tant que l'utilisateur ne l'active pas, et remettre le réglage à zéro efface ce
+  qui avait été gardé.
+
+  Sur un public tenu au secret, c'est précisément la phrase qu'il lira deux fois, et la vérité est
+  un bien meilleur argument que ce qui était écrit. Corrigé dans la carte de la section « comment
+  ça marche », dans la réponse de la foire aux questions, dans son double au format `FAQPage`, et
+  sur la page technique.
+
+  ⚠️ **L'écart venait de moi et pas du logiciel** : j'avais présenté ce point comme une décision à
+  prendre alors qu'il était tranché et implémenté depuis trois jours. Un test le garde désormais
+  côté logiciel.
+
 ## [1.4.1] - 2026-09-21
 
 ### Corrigé
