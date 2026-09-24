@@ -17,6 +17,32 @@ est désormais le seul récit de ce dépôt.
 
 ### Ajouté
 
+- **Page de comparaison**, `/comparatif`. C'était le manque le plus coûteux du site : la question
+  que se pose réellement quelqu'un qui cherche un logiciel de dictée est « lequel prendre », et
+  nous n'avions aucune page qui y répondait. Les concurrents en ont, et c'est ce contenu-là que
+  les moteurs de réponse citent.
+
+  ⚠️ **Elle dit aussi ce que les autres font mieux**, et nomme les cas où il vaut mieux prendre un
+  logiciel payant : version pour Mac, vocabulaire métier déjà chargé, insertion dans un logiciel
+  patient, pédaliers, assistance joignable. Une page de comparaison qui ne perd jamais n'est pas
+  lue comme une comparaison.
+
+  ⛔ **Elle écrit noir sur blanc que Dictum n'est pas le seul à transcrire en local.** D'autres
+  éditeurs font le même choix technique, et le laisser croire aurait été faux. Ce qui nous
+  distingue est ailleurs, et l'argument tient mieux une fois dit honnêtement.
+
+  ⚠️ **Les faits sur les autres logiciels sont datés du 2026-09-24 et relevés sur les sites des
+  éditeurs**, pas écrits de mémoire. La date est sur la page, parce qu'une comparaison vieillit et
+  que rien ne prévient quand elle devient fausse.
+
+  Le passage le plus utile est le test que le lecteur peut faire lui-même : **couper le réseau et
+  essayer de dicter**. Il tranche la question sans dépendre de ce qu'une page de présentation
+  affirme, y compris la nôtre.
+
+  ⚠️ **Le vocabulaire personnel y figure comme « prévu » et non comme disponible** : le code est
+  écrit et commité, mais le dernier tag publié reste `v0.1.1`. Un correctif commité n'est pas un
+  correctif livré, et l'annoncer ici l'aurait fait chercher dans le logiciel installé.
+
 - **Signalement IndexNow**, `scripts/signaler-indexnow.py` et le fichier de clé servi à la racine.
   Le site n'était connu d'aucun moteur autrement que par la découverte spontanée : ce protocole
   prévient Bing, Yandex, Seznam et Naver qu'une page a changé, **sans demander aucun compte**, la

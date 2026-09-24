@@ -32,6 +32,9 @@
 ## Documentation
 
 - [Site](https://dictum.breizhzion.com): présentation, mesures de vitesse, procédures d'installation
+- [Comparatif](https://dictum.breizhzion.com/comparatif): comparaison datée avec les autres logiciels
+  de dictée, ce que les concurrents font mieux, ce qui est prévu. ⚠️ Dictum n'est pas le seul à
+  transcrire en local, d'autres éditeurs font le même choix technique.
 - [Dépôt source](https://github.com/bzhzion/dictum-desktop): code Rust, licence BZ-1.1, notices tierces
 
 ## Téléchargement
