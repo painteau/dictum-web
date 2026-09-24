@@ -1,4 +1,4 @@
-# Dictum
+# Oyant
 
 > Dictée vocale pour Windows et Linux. La reconnaissance vocale s'exécute sur la machine de
 > l'utilisateur : aucun enregistrement n'est envoyé nulle part, et le logiciel fonctionne sans
@@ -31,15 +31,15 @@
 
 ## Documentation
 
-- [Site](https://dictum.breizhzion.com): présentation, mesures de vitesse, procédures d'installation
-- [Comparatif](https://dictum.breizhzion.com/comparatif): comparaison datée avec les autres logiciels
-  de dictée, ce que les concurrents font mieux, ce qui est prévu. ⚠️ Dictum n'est pas le seul à
+- [Site](https://oyant.breizhzion.com): présentation, mesures de vitesse, procédures d'installation
+- [Comparatif](https://oyant.breizhzion.com/comparatif): comparaison datée avec les autres logiciels
+  de dictée, ce que les concurrents font mieux, ce qui est prévu. ⚠️ Oyant n'est pas le seul à
   transcrire en local, d'autres éditeurs font le même choix technique.
-- [Dépôt source](https://github.com/bzhzion/dictum-desktop): code Rust, licence BZ-1.1, notices tierces
+- [Dépôt source](https://github.com/bzhzion/oyant-desktop): code Rust, licence BZ-1.1, notices tierces
 
 ## Téléchargement
 
 - [Installateur Windows](https://dl.breizhzion.com/dictum-desktop/Dictum-Setup-x64.exe): nom fixe, toujours la dernière version
 - [Version publiée](https://dl.breizhzion.com/dictum-desktop/latest.json): manifeste JSON lisible par une machine
-- [Dépôt apt](https://apt.breizhzion.com): Debian et Ubuntu, paquet `dictum`
-- [Dépôt pacman](https://pacman.breizhzion.com): Arch et dérivées, paquet `dictum-bin`
+- [Dépôt apt](https://apt.breizhzion.com): Debian et Ubuntu, paquet `oyant`
+- [Dépôt pacman](https://pacman.breizhzion.com): Arch et dérivées, paquet `oyant-bin`

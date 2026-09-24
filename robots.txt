@@ -3,4 +3,4 @@ Allow: /
 
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
-Sitemap: https://dictum.breizhzion.com/sitemap.xml
+Sitemap: https://oyant.breizhzion.com/sitemap.xml

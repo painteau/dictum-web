@@ -1,6 +1,6 @@
 > **Portee sur ce depot.** Cette licence couvre le contenu **produit ici** : les pages,
 > les feuilles de style, les scripts et les images du site. Elle ne couvre **pas**
-> l'application Dictum elle-meme, qui vit dans `bzhzion/dictum-desktop` avec sa propre
+> l'application Oyant elle-meme, qui vit dans `bzhzion/oyant-desktop` avec sa propre
 > copie de cette licence et son propre `NOTICE.md` pour les composants tiers.
 >
 > Elle ne couvre pas davantage les **deux familles de polices** redistribuees dans `polices/`,

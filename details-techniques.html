@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Détails techniques : Dictum</title>
-  <meta name="description" content="Comment Dictum fonctionne : reconnaissance vocale whisper.cpp locale, modèles et moteurs, mesures de vitesse, installation sur Debian, Ubuntu et Arch, limites connues.">
+  <title>Détails techniques : Oyant</title>
+  <meta name="description" content="Comment Oyant fonctionne : reconnaissance vocale whisper.cpp locale, modèles et moteurs, mesures de vitesse, installation sur Debian, Ubuntu et Arch, limites connues.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://dictum.breizhzion.com/details-techniques">
-  <link rel="stylesheet" href="style.css?v=73fa5114">
+  <link rel="canonical" href="https://oyant.breizhzion.com/details-techniques">
+  <link rel="stylesheet" href="style.css?v=db789eea">
   <link rel="preload" href="polices/Fraunces-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="polices/IBMPlexSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
-  <meta property="og:image" content="https://dictum.breizhzion.com/partage.png">
+  <meta property="og:image" content="https://oyant.breizhzion.com/partage.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Dictum : dictez vos notes, personne d'autre ne les entend.">
+  <meta property="og:image:alt" content="Oyant : dictez vos notes, personne d'autre ne les entend.">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="Dictum">
+  <meta property="og:site_name" content="Oyant">
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Détails techniques de Dictum">
+  <meta property="og:title" content="Détails techniques d’Oyant">
   <meta property="og:description" content="whisper.cpp en local, les trois modèles et les trois moteurs avec leurs mesures, l'installation sur Debian, Ubuntu et Arch, et où les dictées sont écrites sur le disque.">
-  <meta property="og:url" content="https://dictum.breizhzion.com/details-techniques">
+  <meta property="og:url" content="https://oyant.breizhzion.com/details-techniques">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "@id": "https://dictum.breizhzion.com/details-techniques#article",
-    "headline": "D\u00e9tails techniques de Dictum",
+    "@id": "https://oyant.breizhzion.com/details-techniques#article",
+    "headline": "D\u00e9tails techniques d’Oyant",
     "description": "Reconnaissance vocale whisper.cpp locale, mod\u00e8les et moteurs avec leurs mesures, installation sur Debian, Ubuntu et Arch, limites connues, emplacement des donn\u00e9es sur le disque.",
     "inLanguage": "fr-FR",
-    "url": "https://dictum.breizhzion.com/details-techniques",
-    "isPartOf": { "@type": "WebSite", "@id": "https://dictum.breizhzion.com/#site", "name": "Dictum", "url": "https://dictum.breizhzion.com/", "inLanguage": "fr-FR" },
-    "about": { "@type": "SoftwareApplication", "@id": "https://dictum.breizhzion.com/#app" },
+    "url": "https://oyant.breizhzion.com/details-techniques",
+    "isPartOf": { "@type": "WebSite", "@id": "https://oyant.breizhzion.com/#site", "name": "Oyant", "url": "https://oyant.breizhzion.com/", "inLanguage": "fr-FR" },
+    "about": { "@type": "SoftwareApplication", "@id": "https://oyant.breizhzion.com/#app" },
     "publisher": { "@type": "Organization", "@id": "https://breizhzion.com/#organization", "name": "BREIZHZION", "url": "https://breizhzion.com" },
     "proficiencyLevel": "Expert"
   }
@@ -43,21 +43,21 @@
     <div class="nav-inner">
       <a href="/" class="logo">
         <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="none" stroke="#4682b4" stroke-width="2"/><circle cx="16" cy="16" r="6" fill="#4682b4"/></svg>
-        Dictum
+        Oyant
       </a>
       <div class="nav-links">
         <a href="/">Accueil</a>
-        <a href="https://github.com/bzhzion/dictum-desktop" rel="noopener" class="btn-nav">Code source</a>
+        <a href="https://github.com/bzhzion/oyant-desktop" rel="noopener" class="btn-nav">Code source</a>
       </div>
     </div>
   </nav>
 
   <section class="page">
     <h1>Détails techniques</h1>
-    <p>Cette page est pour les personnes qui veulent savoir ce que le logiciel fait exactement, et pour celles qui installent Dictum sur une machine Linux. La page d'accueil suffit pour s'en servir.</p>
+    <p>Cette page est pour les personnes qui veulent savoir ce que le logiciel fait exactement, et pour celles qui installent Oyant sur une machine Linux. La page d'accueil suffit pour s'en servir.</p>
 
     <h2>Ce qui tourne réellement</h2>
-    <p>La reconnaissance vocale est assurée par <a href="https://github.com/ggml-org/whisper.cpp" rel="noopener">whisper.cpp</a>, exécuté en local, avec les modèles Whisper d'OpenAI. Le logiciel est écrit en Rust, l'interface en Tauri. Aucune requête réseau n'est nécessaire pour transcrire : les seules connexions que Dictum établit sont celles que l'utilisateur déclenche, pour télécharger un modèle ou un moteur accéléré, et chaque fichier reçu est vérifié par son empreinte SHA-256 avant d'être utilisé.</p>
+    <p>La reconnaissance vocale est assurée par <a href="https://github.com/ggml-org/whisper.cpp" rel="noopener">whisper.cpp</a>, exécuté en local, avec les modèles Whisper d'OpenAI. Le logiciel est écrit en Rust, l'interface en Tauri. Aucune requête réseau n'est nécessaire pour transcrire : les seules connexions qu’Oyant établit sont celles que l'utilisateur déclenche, pour télécharger un modèle ou un moteur accéléré, et chaque fichier reçu est vérifié par son empreinte SHA-256 avant d'être utilisé.</p>
 
     <h2>Les trois modèles</h2>
     <p>Téléchargés depuis le logiciel. Les durées ont été mesurées sur processeur, pour une même dictée d'une trentaine de secondes.</p>
@@ -91,7 +91,7 @@
     <p>Le moteur CUDA n'est proposé que si un pilote NVIDIA est détecté sur la machine : faire télécharger 600 Mo pour un moteur qui refusera de démarrer serait une mauvaise façon de découvrir qu'on n'a pas la bonne carte. Au vu du rapport entre les deux, Vulkan est le bon choix dans presque tous les cas.</p>
 
     <h2>Installer sous Debian ou Ubuntu</h2>
-    <p>Dictum est publié sur le dépôt apt de l'association. L'ajouter une fois suffit : les versions suivantes arrivent avec les mises à jour habituelles du système.</p>
+    <p>Oyant est publié sur le dépôt apt de l'association. L'ajouter une fois suffit : les versions suivantes arrivent avec les mises à jour habituelles du système.</p>
     <pre class="code-block"><code>curl -fsSL https://apt.breizhzion.com/KEY.gpg \
   | sudo gpg --dearmor -o /usr/share/keyrings/breizhzion.gpg
 
@@ -99,7 +99,7 @@ echo "deb [signed-by=/usr/share/keyrings/breizhzion.gpg] \
 https://apt.breizhzion.com stable main" \
   | sudo tee /etc/apt/sources.list.d/breizhzion.list
 
-sudo apt update &amp;&amp; sudo apt install dictum</code></pre>
+sudo apt update &amp;&amp; sudo apt install oyant</code></pre>
     <p>Le paquet déclare ses dépendances, elles s'installent avec lui. Pour un téléchargement direct sans ajouter de dépôt, le paquet seul est <a href="https://dl.breizhzion.com/dictum-desktop/Dictum-Linux-x64.deb">disponible ici</a>.</p>
 
     <h2>Installer sous Arch</h2>
@@ -110,7 +110,7 @@ sudo apt update &amp;&amp; sudo apt install dictum</code></pre>
 curl -fsSL https://pacman.breizhzion.com/KEY.gpg | sudo pacman-key --add -
 sudo pacman-key --lsign-key apt@breizhzion.com
 
-sudo pacman -Syu dictum-bin</code></pre>
+sudo pacman -Syu oyant-bin</code></pre>
     <p><strong>Bien <code>-Syu</code> et non <code>-Sy</code></strong> : synchroniser la base puis n'installer qu'un seul paquet est le motif de mise à jour partielle contre lequel Arch met explicitement en garde.</p>
 
     <h2>Ce que le logiciel ne fait pas</h2>
@@ -122,19 +122,19 @@ sudo pacman -Syu dictum-bin</code></pre>
 
     <h2>Licence</h2>
     <p>Le code est public sous <strong>BZ-1.1</strong>, une licence en accès libre : l'usage personnel par une personne physique est autorisé, l'usage commercial et la prestation pour un tiers sont réservés à l'association. Ce n'est <em>pas</em> une licence open source au sens de l'OSI, et nous préférons le dire clairement plutôt que d'emprunter le mot.</p>
-    <p>whisper.cpp, ggml et les modèles Whisper restent sous leur licence MIT d'origine, reproduite dans le fichier <code>NOTICE.md</code> du dépôt. La licence de Dictum ne les recouvre pas.</p>
+    <p>whisper.cpp, ggml et les modèles Whisper restent sous leur licence MIT d'origine, reproduite dans le fichier <code>NOTICE.md</code> du dépôt. La licence d’Oyant ne les recouvre pas.</p>
 
     <h2>Où sont vos dictées sur le disque</h2>
     <p>L'historique des dictées, les réglages et les modèles téléchargés vivent dans votre profil
-    utilisateur, sous l'identifiant <code>org.breizhzion.dictum.desktop</code>, et jamais dans le
+    utilisateur, sous l'identifiant <code>org.breizhzion.oyant.desktop</code>, et jamais dans le
     répertoire d'installation :</p>
     <div class="tableau-scroll">
       <table class="tableau">
         <thead><tr><th scope="col">Système</th><th scope="col">Emplacement</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Windows</th><td><code>%LOCALAPPDATA%\org.breizhzion.dictum.desktop</code></td></tr>
-          <tr><th scope="row">Linux</th><td><code>$XDG_DATA_HOME/org.breizhzion.dictum.desktop</code>, sinon <code>~/.local/share/...</code></td></tr>
-          <tr><th scope="row">macOS</th><td><code>~/Library/Application Support/org.breizhzion.dictum.desktop</code></td></tr>
+          <tr><th scope="row">Windows</th><td><code>%LOCALAPPDATA%\org.breizhzion.oyant.desktop</code></td></tr>
+          <tr><th scope="row">Linux</th><td><code>$XDG_DATA_HOME/org.breizhzion.oyant.desktop</code>, sinon <code>~/.local/share/...</code></td></tr>
+          <tr><th scope="row">macOS</th><td><code>~/Library/Application Support/org.breizhzion.oyant.desktop</code></td></tr>
         </tbody>
       </table>
     </div>
@@ -147,13 +147,13 @@ sudo pacman -Syu dictum-bin</code></pre>
       <div class="footer-inner">
         <div class="footer-brand">
           <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="none" stroke="#4682b4" stroke-width="2"/><circle cx="16" cy="16" r="6" fill="#4682b4"/></svg>
-          <span>Dictum</span>
+          <span>Oyant</span>
         </div>
         <div class="footer-links">
           <a href="/">Accueil</a>
           <a href="/comparatif">Comparatif</a>
           <a href="/a-propos">À propos</a>
-          <a href="https://github.com/bzhzion/dictum-desktop" rel="noopener">Code source</a>
+          <a href="https://github.com/bzhzion/oyant-desktop" rel="noopener">Code source</a>
           <a href="https://breizhzion.com" rel="noopener">BREIZHZION</a>
         </div>
         <div class="footer-note">Édité par BREIZHZION, association d'intérêt général · Villeurbanne</div>

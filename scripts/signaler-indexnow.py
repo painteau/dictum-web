@@ -26,7 +26,7 @@ import urllib.request
 from pathlib import Path
 
 RACINE = Path(__file__).resolve().parent.parent
-HOTE = "dictum.breizhzion.com"
+HOTE = "oyant.breizhzion.com"
 POINT_DE_COLLECTE = "https://api.indexnow.org/indexnow"
 
 

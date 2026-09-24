@@ -15,6 +15,31 @@ est désormais le seul récit de ce dépôt.
 
 ## [Unreleased]
 
+### Changed
+
+- ⛔ **Le produit s'appelle Oyant, et le site avec.** Une application **« Dictum - private voice
+  to text »** existe déjà sur l'App Store (Factory Design LLC, `6759581003`) : même nom, même
+  sous-titre sur l'absence de cloud, même traitement sur l'appareil, même gratuité. Ce n'était pas
+  une homonymie mais un doublon, et tout le référencement construit ici envoyait les lecteurs
+  chez quelqu'un d'autre.
+
+  Le site répond désormais sur **`oyant.breizhzion.com`**, ajouté au même projet Pages.
+  `dictum.breizhzion.com` continue de servir, le temps que les moteurs suivent.
+
+  ⛔ **Les 13 liens « Code source » étaient MORTS entre le renommage du dépôt et ce commit.**
+  GitHub n'a pas redirigé `bzhzion/dictum-desktop` vers `bzhzion/oyant-desktop` : l'ancienne
+  adresse rend un vrai 404, y compris pour un navigateur. Ne pas compter sur cette redirection.
+
+  ⚠️ **Les URL de téléchargement n'ont délibérément PAS été renommées.** Elles désignent des
+  objets R2 qui existent, et que le site sert en ce moment. Les changer avant d'avoir copié les
+  objets transformerait un téléchargement qui marche en 404, ce qui est exactement le défaut que
+  ce dépôt a déjà payé sur un autre site. Règle appliquée : **on copie vers le nouveau préfixe,
+  on ne déplace jamais.**
+
+  ⚠️ **« Oyant » commence par une voyelle.** Le renommage mécanique a produit « de Oyant » et
+  « que Oyant » dans cinq fichiers, y compris dans des `<title>` et du `schema.org`. Corrigé
+  séparément : aucun contrôle automatique ne voit une élision fautive.
+
 ### Ajouté
 
 - **Page de comparaison**, `/comparatif`. C'était le manque le plus coûteux du site : la question

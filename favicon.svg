@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Marque Dictum : un disque central entoure d'un anneau SEPARE.
-       Geometrie identique a l'icone de l'application (bzhzion/dictum-app, assets/icon.png,
+  <!-- Marque Oyant : un disque central entoure d'un anneau SEPARE.
+       Geometrie identique a l'icone de l'application (bzhzion/oyant-app, assets/icon.png,
        generee par scripts/generer_icones.py) : disque r=6, anneau de r=11 a r=13.
        L'anneau est trace en `stroke` centre sur r=12 avec une epaisseur de 2, ce qui est
        exactement equivalent et a l'avantage de ne rien peindre entre le disque et l'anneau :

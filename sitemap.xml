@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dictum.breizhzion.com/</loc>
+    <loc>https://oyant.breizhzion.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -10,17 +10,17 @@
        et non declare est un contenu qui n'existe pas pour un moteur. Un controle de CI verifie
        desormais que chaque page servie est declaree. -->
   <url>
-    <loc>https://dictum.breizhzion.com/details-techniques</loc>
+    <loc>https://oyant.breizhzion.com/details-techniques</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dictum.breizhzion.com/comparatif</loc>
+    <loc>https://oyant.breizhzion.com/comparatif</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dictum.breizhzion.com/a-propos</loc>
+    <loc>https://oyant.breizhzion.com/a-propos</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
