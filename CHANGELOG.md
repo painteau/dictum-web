@@ -15,6 +15,31 @@ est désormais le seul récit de ce dépôt.
 
 ## [Unreleased]
 
+### Ajouté
+
+- **Signalement IndexNow**, `scripts/signaler-indexnow.py` et le fichier de clé servi à la racine.
+  Le site n'était connu d'aucun moteur autrement que par la découverte spontanée : ce protocole
+  prévient Bing, Yandex, Seznam et Naver qu'une page a changé, **sans demander aucun compte**, la
+  preuve de propriété étant un fichier contenant la clé que le moteur va lire lui-même.
+
+  ⚠️ **Les URL signalées sont dérivées de `sitemap.xml`**, jamais recopiées à la main : une liste
+  tenue en double finit par diverger de celle qui fait autorité, et on signalerait alors une page
+  disparue ou on en oublierait une neuve.
+
+  ⛔ **Google n'utilise pas IndexNow**, et son ancien signalement de sitemap a été retiré en 2023 :
+  il n'existe plus aucun chemin automatique vers lui. Le script le dit en toutes lettres en tête
+  de fichier, pour que personne ne croie la question réglée pour autant.
+
+### Corrigé
+
+- **`llms.txt` disait de l'historique moins que ce que le site dit depuis le 2026-09-21** : il le
+  décrivait comme « un fichier sur le disque » sans mentionner qu'il est désactivé par défaut.
+  C'est le fichier écrit pour être lu par des machines, donc précisément celui qu'un moteur de
+  réponse cite, et il portait la version la moins favorable d'un argument qui nous sert.
+
+  ⚠️ **La correction du 2026-09-21 avait été passée page par page**, et ce fichier-là a été
+  oublié parce qu'il n'est pas une page. Même famille que le repli branché écran par écran.
+
 ## [1.4.2] - 2026-09-21
 
 ### Corrigé

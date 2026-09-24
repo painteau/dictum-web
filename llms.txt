@@ -19,7 +19,8 @@
   depuis le logiciel et vérifiés par empreinte.
 - Trois moteurs : processeur (embarqué dans l'installateur Windows), Vulkan pour toute carte
   graphique, CUDA pour NVIDIA seulement et proposé uniquement si un pilote est détecté.
-- Historique local des dictées, dans un fichier sur le disque.
+- Historique local des dictées, **désactivé par défaut** : rien n'est écrit sur le disque tant
+  que l'utilisateur ne l'active pas, et remettre le réglage à zéro efface ce qui avait été gardé.
 
 ## Ce que le logiciel ne fait pas
 
