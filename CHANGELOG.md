@@ -26,9 +26,13 @@ est désormais le seul récit de ce dépôt.
   Le site répond désormais sur **`oyant.breizhzion.com`**, ajouté au même projet Pages.
   `dictum.breizhzion.com` continue de servir, le temps que les moteurs suivent.
 
-  ⛔ **Les 13 liens « Code source » étaient MORTS entre le renommage du dépôt et ce commit.**
-  GitHub n'a pas redirigé `bzhzion/dictum-desktop` vers `bzhzion/oyant-desktop` : l'ancienne
-  adresse rend un vrai 404, y compris pour un navigateur. Ne pas compter sur cette redirection.
+  ⚠️ **Les 13 liens « Code source » ont été mis à jour vers `bzhzion/oyant-desktop`.**
+
+  ⚠️ **Correction d'une affirmation de cette entrée** : j'ai d'abord écrit que GitHub ne
+  redirigeait pas le dépôt renommé, après avoir mesuré un 404 dans les minutes suivant
+  l'opération. **C'est faux, la redirection fonctionne**, elle n'est pas immédiate. Mettre les
+  liens à jour reste juste, parce que la redirection tombe si quelqu'un reprend l'ancien nom,
+  mais ils n'étaient pas morts comme annoncé.
 
   ⚠️ **Les URL de téléchargement n'ont délibérément PAS été renommées.** Elles désignent des
   objets R2 qui existent, et que le site sert en ce moment. Les changer avant d'avoir copié les
