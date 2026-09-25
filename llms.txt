@@ -39,7 +39,7 @@
 
 ## Téléchargement
 
-- [Installateur Windows](https://dl.breizhzion.com/dictum-desktop/Dictum-Setup-x64.exe): nom fixe, toujours la dernière version
-- [Version publiée](https://dl.breizhzion.com/dictum-desktop/latest.json): manifeste JSON lisible par une machine
+- [Installateur Windows](https://dl.breizhzion.com/oyant-desktop/Oyant-Setup-x64.exe): nom fixe, toujours la dernière version
+- [Version publiée](https://dl.breizhzion.com/oyant-desktop/latest.json): manifeste JSON lisible par une machine
 - [Dépôt apt](https://apt.breizhzion.com): Debian et Ubuntu, paquet `oyant`
 - [Dépôt pacman](https://pacman.breizhzion.com): Arch et dérivées, paquet `oyant-bin`

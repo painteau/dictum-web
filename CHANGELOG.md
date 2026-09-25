@@ -34,11 +34,14 @@ est désormais le seul récit de ce dépôt.
   liens à jour reste juste, parce que la redirection tombe si quelqu'un reprend l'ancien nom,
   mais ils n'étaient pas morts comme annoncé.
 
-  ⚠️ **Les URL de téléchargement n'ont délibérément PAS été renommées.** Elles désignent des
-  objets R2 qui existent, et que le site sert en ce moment. Les changer avant d'avoir copié les
-  objets transformerait un téléchargement qui marche en 404, ce qui est exactement le défaut que
-  ce dépôt a déjà payé sur un autre site. Règle appliquée : **on copie vers le nouveau préfixe,
-  on ne déplace jamais.**
+  ✅ **Les URL de téléchargement pointent sur le préfixe Oyant depuis le 2026-09-25**, une fois
+  les objets R2 copiés et leur contenu vérifié : `Oyant-Setup-x64.exe`, `Oyant-Linux-x64.deb`,
+  `latest.json`, et le manifeste des moteurs. Le `latest.json` a été **réécrit** et non copié :
+  il porte des URL, donc le copier tel quel aurait reproduit les anciens chemins.
+
+  ⛔ **Les anciens objets restent en place**, ils ne sont pas supprimés : la 0.1.1 déjà installée
+  va chercher son moteur à l'ancienne adresse. **On copie vers le nouveau préfixe, on ne déplace
+  jamais** — c'est exactement le défaut qu'un autre site du parc a déjà payé.
 
   ⚠️ **« Oyant » commence par une voyelle.** Le renommage mécanique a produit « de Oyant » et
   « que Oyant » dans cinq fichiers, y compris dans des `<title>` et du `schema.org`. Corrigé
