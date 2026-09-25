@@ -1,6 +1,6 @@
 # Changelog
 
-Toutes les évolutions notables de `dictum-web` sont documentées ici.
+Toutes les évolutions notables de `oyant-web` sont documentées ici.
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versionnage
 [SemVer](https://semver.org/lang/fr/). La section `[Unreleased]` accumule au fil de l'eau et
@@ -64,6 +64,18 @@ est désormais le seul récit de ce dépôt.
   et les 11 runners de l'org sont en 2.336.0 ou mieux, au-dessus du minimum 2.327.1 qu'exigent
   `checkout` v5 et `setup-node` v5. Vérifié par un build iOS réel avant propagation.
 
+- **Le projet Cloudflare Pages a été recréé** pour que le sous-domaine technique cesse de porter
+  l'ancien nom. Renommer le projet ne suffisait pas : le `.pages.dev` est **figé à la création**,
+  donc un projet rebaptisé `oyant-web` continuait de servir sur `dictum-web.pages.dev`, et c'est
+  cette adresse que le CNAME de `oyant.breizhzion.com` désignait. Séquence jouée : projet courant
+  renommé pour libérer le nom, projet neuf créé avec la même source Git (`repo_id` identique, le
+  nom de dépôt stocké par Cloudflare étant resté périmé après le renommage GitHub), déploiement de
+  production déclenché et **vérifié au contenu servi**, domaine personnalisé déplacé, CNAME
+  repointé, ancien projet supprimé. Coupure mesurée : environ une minute en `522`.
+
+  ⚠️ **Le contrôle qui compte n'est pas le code de statut** : sur Pages, un chemin absent rend la
+  page d'accueil en `200`, donc seule la mesure du contenu prouve quoi que ce soit.
+
 - ⛔ **Le produit s'appelle Oyant, et le site avec.** Une application **« Dictum - private voice
   to text »** existe déjà sur l'App Store (Factory Design LLC, `6759581003`) : même nom, même
   sous-titre sur l'absence de cloud, même traitement sur l'appareil, même gratuité. Ce n'était pas
@@ -71,7 +83,9 @@ est désormais le seul récit de ce dépôt.
   chez quelqu'un d'autre.
 
   Le site répond désormais sur **`oyant.breizhzion.com`**, ajouté au même projet Pages.
-  `dictum.breizhzion.com` continue de servir, le temps que les moteurs suivent.
+  `dictum.breizhzion.com` a d'abord continué de servir le temps que les moteurs suivent, puis a
+  été retiré : painteau a tranché pour un effacement complet de l'ancien nom plutôt que pour une
+  transition en douceur, personne n'ayant encore installé le produit.
 
   ⚠️ **Les 13 liens « Code source » ont été mis à jour vers `bzhzion/oyant-desktop`.**
 
