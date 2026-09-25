@@ -17,7 +17,7 @@ jobs:
     name: Controles du site
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # ⛔ Mesure du 2026-09-21 : le navigateur d'un visiteur passe dans les quatre heures
       # precedentes servait encore l'ANCIENNE feuille de style, parce qu'elle etait mise en cache
