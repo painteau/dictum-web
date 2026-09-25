@@ -15,47 +15,6 @@ est désormais le seul récit de ce dépôt.
 
 ## [Unreleased]
 
-### Modifié
-
-- **`actions/checkout` et `actions/setup-node` passent en v7** dans les workflows : les versions
-  posées déclaraient `using: node20`, déprécié et déjà forcé sur Node 24 par GitHub. Les quatre
-  changements de rupture de ces majeures ont été lus et confrontés au parc, aucun ne s'y applique,
-  et les 11 runners de l'org sont en 2.336.0 ou mieux, au-dessus du minimum 2.327.1 qu'exigent
-  `checkout` v5 et `setup-node` v5. Vérifié par un build iOS réel avant propagation.
-
-
-### Changed
-
-- ⛔ **Le produit s'appelle Oyant, et le site avec.** Une application **« Dictum - private voice
-  to text »** existe déjà sur l'App Store (Factory Design LLC, `6759581003`) : même nom, même
-  sous-titre sur l'absence de cloud, même traitement sur l'appareil, même gratuité. Ce n'était pas
-  une homonymie mais un doublon, et tout le référencement construit ici envoyait les lecteurs
-  chez quelqu'un d'autre.
-
-  Le site répond désormais sur **`oyant.breizhzion.com`**, ajouté au même projet Pages.
-  `dictum.breizhzion.com` continue de servir, le temps que les moteurs suivent.
-
-  ⚠️ **Les 13 liens « Code source » ont été mis à jour vers `bzhzion/oyant-desktop`.**
-
-  ⚠️ **Correction d'une affirmation de cette entrée** : j'ai d'abord écrit que GitHub ne
-  redirigeait pas le dépôt renommé, après avoir mesuré un 404 dans les minutes suivant
-  l'opération. **C'est faux, la redirection fonctionne**, elle n'est pas immédiate. Mettre les
-  liens à jour reste juste, parce que la redirection tombe si quelqu'un reprend l'ancien nom,
-  mais ils n'étaient pas morts comme annoncé.
-
-  ✅ **Les URL de téléchargement pointent sur le préfixe Oyant depuis le 2026-09-25**, une fois
-  les objets R2 copiés et leur contenu vérifié : `Oyant-Setup-x64.exe`, `Oyant-Linux-x64.deb`,
-  `latest.json`, et le manifeste des moteurs. Le `latest.json` a été **réécrit** et non copié :
-  il porte des URL, donc le copier tel quel aurait reproduit les anciens chemins.
-
-  ⛔ **Les anciens objets restent en place**, ils ne sont pas supprimés : la 0.1.1 déjà installée
-  va chercher son moteur à l'ancienne adresse. **On copie vers le nouveau préfixe, on ne déplace
-  jamais** — c'est exactement le défaut qu'un autre site du parc a déjà payé.
-
-  ⚠️ **« Oyant » commence par une voyelle.** Le renommage mécanique a produit « de Oyant » et
-  « que Oyant » dans cinq fichiers, y compris dans des `<title>` et du `schema.org`. Corrigé
-  séparément : aucun contrôle automatique ne voit une élision fautive.
-
 ### Ajouté
 
 - **Page de comparaison**, `/comparatif`. C'était le manque le plus coûteux du site : la question
@@ -96,6 +55,44 @@ est désormais le seul récit de ce dépôt.
   ⛔ **Google n'utilise pas IndexNow**, et son ancien signalement de sitemap a été retiré en 2023 :
   il n'existe plus aucun chemin automatique vers lui. Le script le dit en toutes lettres en tête
   de fichier, pour que personne ne croie la question réglée pour autant.
+
+### Modifié
+
+- **`actions/checkout` et `actions/setup-node` passent en v7** dans les workflows : les versions
+  posées déclaraient `using: node20`, déprécié et déjà forcé sur Node 24 par GitHub. Les quatre
+  changements de rupture de ces majeures ont été lus et confrontés au parc, aucun ne s'y applique,
+  et les 11 runners de l'org sont en 2.336.0 ou mieux, au-dessus du minimum 2.327.1 qu'exigent
+  `checkout` v5 et `setup-node` v5. Vérifié par un build iOS réel avant propagation.
+
+- ⛔ **Le produit s'appelle Oyant, et le site avec.** Une application **« Dictum - private voice
+  to text »** existe déjà sur l'App Store (Factory Design LLC, `6759581003`) : même nom, même
+  sous-titre sur l'absence de cloud, même traitement sur l'appareil, même gratuité. Ce n'était pas
+  une homonymie mais un doublon, et tout le référencement construit ici envoyait les lecteurs
+  chez quelqu'un d'autre.
+
+  Le site répond désormais sur **`oyant.breizhzion.com`**, ajouté au même projet Pages.
+  `dictum.breizhzion.com` continue de servir, le temps que les moteurs suivent.
+
+  ⚠️ **Les 13 liens « Code source » ont été mis à jour vers `bzhzion/oyant-desktop`.**
+
+  ⚠️ **Correction d'une affirmation de cette entrée** : j'ai d'abord écrit que GitHub ne
+  redirigeait pas le dépôt renommé, après avoir mesuré un 404 dans les minutes suivant
+  l'opération. **C'est faux, la redirection fonctionne**, elle n'est pas immédiate. Mettre les
+  liens à jour reste juste, parce que la redirection tombe si quelqu'un reprend l'ancien nom,
+  mais ils n'étaient pas morts comme annoncé.
+
+  ✅ **Les URL de téléchargement pointent sur le préfixe Oyant depuis le 2026-09-25**, une fois
+  les objets R2 copiés et leur contenu vérifié : `Oyant-Setup-x64.exe`, `Oyant-Linux-x64.deb`,
+  `latest.json`, et le manifeste des moteurs. Le `latest.json` a été **réécrit** et non copié :
+  il porte des URL, donc le copier tel quel aurait reproduit les anciens chemins.
+
+  ⛔ **Les anciens objets restent en place**, ils ne sont pas supprimés : la 0.1.1 déjà installée
+  va chercher son moteur à l'ancienne adresse. **On copie vers le nouveau préfixe, on ne déplace
+  jamais** — c'est exactement le défaut qu'un autre site du parc a déjà payé.
+
+  ⚠️ **« Oyant » commence par une voyelle.** Le renommage mécanique a produit « de Oyant » et
+  « que Oyant » dans cinq fichiers, y compris dans des `<title>` et du `schema.org`. Corrigé
+  séparément : aucun contrôle automatique ne voit une élision fautive.
 
 ### Corrigé
 
